@@ -16,14 +16,14 @@
         // $control->get_ejemplos(); -->
 
     <?php
-        include_once "C:/xampp/htdocs/DLR/recursos/plantillas/header_root.php";
+        include_once "C:/xampp/htdocs/DLR/resources/templates/header_root.php";
         
     ?>
       
-        <a href="recursos/controlador/ejemplo_controlador.php">Ejemplos</a>
+        <a href="resources/view/ejemplo/ejemplo_view.php">Ejemplos</a>
 
     <?php
-        include_once "C:/xampp/htdocs/DLR/recursos/plantillas/footer_root.php"
+        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_root.php"
     ?>
    
 </body>

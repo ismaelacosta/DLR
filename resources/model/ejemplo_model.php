@@ -1,6 +1,6 @@
 <?php
 
-require_once "C:/xampp/htdocs/DLR/recursos/configuracion/conexion_bd.php";
+require_once "C:/xampp/htdocs/DLR/resources/config/db_conection.php";
 
 class Ejemplo_model {
 
