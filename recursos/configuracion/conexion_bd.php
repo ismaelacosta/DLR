@@ -10,7 +10,6 @@
 
             try {
                 $conexion = new PDO('mysql:host='.$direccion_host.';dbname='.$nombre_base_de_datos, $usuario, $contrasena);
-                echo "Conexion realizada exitosamente";
                 return $conexion;
             } catch (PDOException $e) {
                 print "¡Error!: " . $e->getMessage() . "<br/>";

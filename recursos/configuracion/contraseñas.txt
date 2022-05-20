@@ -1,0 +1,5 @@
+Base de datos
+
+nombre base de datos = dlr
+usuario: root
+contraseña : &R}ha\YD(hu6hrk
