@@ -22,6 +22,10 @@
             if($_GET["status"] == "error" && $_GET["action"] = "login"){
                 echo "<strong>Usuario o Contraseña incorrectos. Intentelo denuevo</strong>";
             }
+
+            if($_GET["status"] == "ok" && $_GET["action"] = "add_account"){
+                echo "<strong>Usuario o Contraseña Registrado. Inicie sesion</strong>";
+            }
         }
     ?>
 
@@ -39,7 +43,7 @@
         </form>
 
         <p>¿No tienes una cuenta?</p>
-        <a href="">Crear una nueva</a>
+        <a href="resources/view/login/agregar_usuario_view.php">Crear una nueva</a>
             
     </div>
       

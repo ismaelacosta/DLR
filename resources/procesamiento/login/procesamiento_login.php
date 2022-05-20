@@ -8,9 +8,9 @@
     
     $login_model = new Login_model();
 
-    $numero_registro = $login_model->check_user($username, $password);
+    $acceso = $login_model->check_user($username, $password);
 
-    if($numero_registro !=0){
+    if($acceso == true){
 
         session_start();
         $_SESSION["username"] = $username;
