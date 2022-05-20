@@ -25,7 +25,7 @@
         }
     ?>
 
-    <div class="container">
+    <div class="container centrar_contenido">
         <form action="resources/procesamiento/login/procesamiento_login.php" method="post">
             <div class="mb-3">
             <label for="username" class="form-label">Nombre de usuario</label>

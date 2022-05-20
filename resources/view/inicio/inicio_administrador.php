@@ -19,10 +19,20 @@
             //Redirigir al login
 
             header("Location: ../acceso/acceso_no_autorizado.php");
+            die();
         }
+
+        include_once "C:/xampp/htdocs/DLR/resources/templates/header_view.php";
 
 
         echo "hola: " . $_SESSION["username"]. "<br><br>";
+    ?>
+
+
+    <?php
+        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
+
+
     ?>
     
 </body>
