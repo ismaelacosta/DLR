@@ -5,7 +5,7 @@
 
 
 
-    header("Location: ../../../index.php");
+    header("Location: ../../../public_html/index.php");
     die();
 
 

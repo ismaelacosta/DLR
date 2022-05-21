@@ -11,7 +11,7 @@
     $respuesta = $login_model->add_user($username, $password);
 
     if ($respuesta == "ok") {
-        header("location: ../../../index.php?status=ok&action=add_account");
+        header("location: ../../../public_html/index.php?status=ok&action=add_account");
         die();
     }elseif($respuesta == "error-user_created"){
         header("location: ../../view/login/agregar_usuario_view.php?status=error&action=username_used");

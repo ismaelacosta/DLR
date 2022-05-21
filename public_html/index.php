@@ -30,7 +30,7 @@
     ?>
 
     <div class="container centrar_contenido">
-        <form action="resources/procesamiento/login/procesamiento_login.php" method="post">
+        <form action="../resources/procesamiento/login/procesamiento_login.php" method="post">
             <div class="mb-3">
             <label for="username" class="form-label">Nombre de usuario</label>
             <input type="text" class="" id="username" name="username" placeholder="pablito123">
@@ -43,7 +43,7 @@
         </form>
 
         <p>¿No tienes una cuenta?</p>
-        <a href="resources/view/login/agregar_usuario_view.php">Crear una nueva</a>
+        <a href="../resources/view/login/agregar_usuario_view.php">Crear una nueva</a>
             
     </div>
       

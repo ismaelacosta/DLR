@@ -19,7 +19,7 @@
         die();
 
     }else{
-        header("location: ../../../index.php?status=error&action=login");
+        header("location: ../../../public_html/index.php?status=error&action=login");
         die();
     }
 
