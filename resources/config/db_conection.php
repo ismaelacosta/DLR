@@ -6,7 +6,7 @@
             $direccion_host = "localhost";
             $contrasena = "";
             $usuario = "root";
-            $nombre_base_de_datos = "ejemplo";
+            $nombre_base_de_datos = "dlr";
 
             try {
                 $conexion = new PDO('mysql:host='.$direccion_host.';dbname='.$nombre_base_de_datos, $usuario, $contrasena);
