@@ -10,13 +10,25 @@
 
     $acceso = $login_model->check_user($username, $password);
 
+
     if($acceso == true){
 
         session_start();
         $_SESSION["username"] = $username;
 
-        header("location: ../../view/inicio/inicio_administrador.php");
-        die();
+        $tipo_acceso = $login_model->type_user($username);
+
+        if($tipo_acceso == "administrador"){
+            header("location: ../../view/inicio/inicio_administrador.php");
+            die();
+        }else{
+            echo "Entro al cliente";
+            header("location: ../../view/inicio/inicio_cliente.php");
+            die();
+        }
+
+
+        
 
     }else{
         header("location: ../../../public_html/index.php?status=error&action=login");

@@ -24,7 +24,7 @@ class Login_model {
             $resultado->execute();
 
             foreach ($resultado as $dato) {
-                if(password_verify($contrasena,$dato["password"])){
+                if(password_verify($contrasena,$dato["contrasena"])){
                     $login = true;
                     break;
                 }
@@ -33,6 +33,20 @@ class Login_model {
             echo 'Excepción capturada: ',  $e->getMessage(), "\n";
         }
         return $login;
+    }
+
+    public function type_user($username){
+        $sql = "SELECT tipo_usuario.tipo_usuario FROM usuario,tipo_usuario WHERE usuario.id_tipo_usuario=tipo_usuario.id_tipo_usuario AND username = :usuario";
+        $resultado = $this->db->prepare($sql);
+
+        $resultado->bindValue(":usuario",$username);
+
+        $resultado->execute();
+
+        foreach($resultado as $dato){
+            return $dato["tipo_usuario"];
+        }
+
     }
 
 
@@ -60,18 +74,18 @@ class Login_model {
         return $is_empty;
     }
 
-    public function add_user($usuario, $contrasena){
+    public function add_user($username, $password, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono){
 
-        $is_empty_username = $this->empty_username($usuario);
+        $is_empty_username = $this->empty_username($username);
 
         if($is_empty_username){
             try {
 
-                $password_cifrada = password_hash($contrasena,PASSWORD_DEFAULT,array("cost"=>12));
+                $password_cifrada = password_hash($password,PASSWORD_DEFAULT,array("cost"=>12));
     
-                $sql = "INSERT INTO usuario(username,password) VALUES(?,?)";
+                $sql = "INSERT INTO usuario(username,contrasena,calle,codigo_postal,colonia,id_tipo_usuario,telefono) VALUES(?,?,?,?,?,?,?)";
                 $preparacion = $this->db->prepare($sql);
-                $preparacion->execute([$usuario,$password_cifrada]);
+                $preparacion->execute([$username,$password_cifrada,$calle,$codigo_postal,$colonia,$tipo_usuario,$telefono]);
     
                 echo "Datos insertados correctamente";
     

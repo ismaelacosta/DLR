@@ -6,9 +6,15 @@
     $username = htmlentities(addslashes($_POST["username"]));
     
     $password = htmlentities(addslashes($_POST["password"]));
+    $calle = htmlentities(addslashes($_POST["calle"]));
+    $codigo_postal = htmlentities(addslashes($_POST["codigo_postal"]));
+    $colonia = htmlentities(addslashes($_POST["colonia"]));
+    $telefono = htmlentities(addslashes($_POST["telefono"]));
+
+    $tipo_usuario = 2;
 
 
-    $respuesta = $login_model->add_user($username, $password);
+    $respuesta = $login_model->add_user($username, $password, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono);
 
     if ($respuesta == "ok") {
         header("location: ../../../public_html/index.php?status=ok&action=add_account");

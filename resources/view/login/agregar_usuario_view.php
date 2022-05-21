@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,6 +31,19 @@
             <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
             <input type="text" id="password" name="password" required>
+
+            <label for="codigo_postal" class="form-label">Código postal</label>
+            <input type="text" id="codigo_postal" name="codigo_postal" required>
+
+            <label for="calle" class="form-label">Calle</label>
+            <input type="text" id="calle" name="calle" required>
+
+            <label for="colonia" class="form-label">Colonia</label>
+            <input type="text" id="colonia" name="colonia" required>
+
+            <label for="telefono" class="form-label">Telefono</label>
+            <input type="text" id="telefono" name="telefono" required>
+
             <input type="submit" value="Crear cuenta">
             </div>
         </form>
