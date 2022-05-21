@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="text" id="password" name="password" required>
+            <input type="password" id="password" name="password" required>
 
             <label for="codigo_postal" class="form-label">Código postal</label>
             <input type="text" id="codigo_postal" name="codigo_postal" required>

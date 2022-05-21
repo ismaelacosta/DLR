@@ -28,6 +28,8 @@
         echo "hola: " . $_SESSION["username"]. "<br><br>";
     ?>
 
+    <a href="../producto/agregar_producto_view.php">Registrar nuevo producto</a>
+
 
     <?php
         include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
