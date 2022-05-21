@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="shortcut icon" href="../../../img/icons/dlr.png">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    
+
 </head>
 <body>
     <?php
@@ -22,10 +27,11 @@
         include_once "C:/xampp/htdocs/DLR/resources/templates/header_view.php";
 
 
-        echo "hola: " . $_SESSION["username"]. "<br><br>";
+        echo "Bienvenido: " . $_SESSION["username"]. "<br><br>";
     ?>
+        <h2>Menú de opciones</h2>
 
-        <h1>Pagina principal del cliente</h1>
+        
 
     <?php
         include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
