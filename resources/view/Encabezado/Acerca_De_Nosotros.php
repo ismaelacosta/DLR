@@ -83,7 +83,7 @@
         <h2>DLR</h2>
         <p>
           DLR (Dulcería los Roberts) tiene este nombre ya que los socios que crearon este sitio 
-          comparten el nombre Roberto, ambos socios estuvieron de acuerdo con este nombre.
+          comparten el nombre Roberto, ambos socios estuvieron de acuerdo con este nombre
         </p>
 
       </div>
