@@ -24,7 +24,7 @@
             die();
         }
 
-        include_once "C:/xampp/htdocs/DLR/resources/templates/header_view.php";
+        include_once "../../templates/header_view.php";
 
 
         echo "Bienvenido: " . $_SESSION["username"]. "<br><br>";
@@ -34,7 +34,7 @@
         
 
     <?php
-        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
+        include_once "../../templates/footer_view.php";
 
 
     ?>

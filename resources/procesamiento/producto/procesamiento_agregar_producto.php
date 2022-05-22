@@ -1,5 +1,5 @@
 <?php
-    require_once "C:/xampp/htdocs/DLR/resources/model/producto_model.php";
+    require_once "../../model/producto_model.php";
 
     $producto_model = new Producto_model();
 
