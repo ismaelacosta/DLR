@@ -26,13 +26,21 @@
         require_once "../../model/producto_model.php";
 
         //Lanza la respuesta si el inicio de sesion es incorrecto
-        if(isset($_GET['status'])  || isset($_GET["action"])){
-            if($_GET["status"] == "ok" && $_GET["action"] = "producto_eliminado"){
+        if(isset($_GET['status'])  && isset($_GET["action"])){
+            if($_GET["status"] == "ok" && $_GET["action"] == "producto_eliminado"){
                 echo "<strong>Producto eliminado correctamente</strong>";
             }
 
-            if($_GET["status"] == "ok" && $_GET["action"] = "producto_no_eliminado"){
+            if($_GET["status"] == "ok" && $_GET["action"] == "producto_editado"){
+                echo "<strong>Producto editado correctamente</strong>";
+            }
+
+            if($_GET["status"] == "error" && $_GET["action"] == "producto_no_eliminado"){
                 echo "<strong>Ocurrio un error al eliminar el producto</strong>";
+            }
+
+            if($_GET["status"] == "error" && $_GET["action"] == "producto_no_editado"){
+                echo "<strong>Ocurrio un error al editar el producto</strong>";
             }
         }
 
@@ -52,7 +60,7 @@
         <th scope="col">Precio</th>
         <th scope="col">Existencias</th>
         <th scope="col">Imagen</th>
-        <th scope="col">Acciones</th>
+        <th scope="col" colspan="2">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -71,7 +79,8 @@
                 <a href="../../procesamiento/producto/procesamiento_eliminar_productos.php?id=<?php echo $fila["id_producto"];?>">
                     <img width="40" src="../../../public_html/img/icons/delete_icon.webp" alt="">
                 </a>
-
+        </td>
+                <td>
                 <a href="editar_productos_view.php?id=<?php echo $fila["id_producto"];?>">
                     <img width="40" src="../../../public_html/img/icons/edit_icon.png" alt="">
                 </a>

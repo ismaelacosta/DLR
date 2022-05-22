@@ -44,6 +44,54 @@ class Producto_model {
         }
     }
 
+
+    public function get_product_by_id($id_producto){
+        $informacion_producto = array();
+        try {
+            $sql = "SELECT * FROM producto WHERE id_producto= :producto";
+            $preparacion = $this->db->prepare($sql);
+            $preparacion->bindValue(":producto",$id_producto);
+            $preparacion->execute();
+
+            while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                $informacion_producto[]=$filas;
+            }
+
+            return $informacion_producto;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        }
+    }
+
+    public function set_producto_by_id($id_producto,$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen){
+        try {
+
+            echo $id_producto;
+
+            $sql = "UPDATE producto SET nombre_producto= :nombre_producto, contenido_piezas= :contenido_piezas,marca= :marca,precio= :precio,existencias= :existencias,url_imagen= :url_imagen WHERE id_producto= :id_producto";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":nombre_producto",$nombre_producto);
+            $preparacion->bindValue(":contenido_piezas",$contenido_piezas);
+            $preparacion->bindValue(":marca",$marca);
+            $preparacion->bindValue(":precio",$precio);
+            $preparacion->bindValue(":existencias",$existencias);
+            $preparacion->bindValue(":url_imagen",$url_imagen);
+            $preparacion->bindValue(":id_producto",$id_producto);
+
+
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return "ok";
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        } 
+    }
+
     public function delete_product($id_producto){
         $eliminado = false;
         try {
