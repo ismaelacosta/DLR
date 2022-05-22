@@ -51,17 +51,20 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
+      footer{
+        background-image:url("https://media.istockphoto.com/photos/abstract-pastel-coloured-paper-texture-minimalism-background-minimal-picture-id921659184?k=6&m=921659184&s=170667a&w=0&h=Pbp6R8nMdQaRQZW4F0YVahiJSNf5NGK3213xblCmy0U=");
+      }
     </style>
 
 
-<footer>    
-<div class="container">
+<footer>
+  
+
+<div class="container-fluid">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <p class="col-md-4 mb-0 text-muted">&copy; 2022 DLR</p>
 
-    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-    </a>
+
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Página principal</a></li>
