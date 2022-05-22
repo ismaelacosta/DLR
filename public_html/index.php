@@ -50,7 +50,7 @@
         
 
     <?php
-        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_root.php"
+        include_once "../resources/templates/footer_root.php"
     ?>
    
 </body>

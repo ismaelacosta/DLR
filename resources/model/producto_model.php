@@ -1,6 +1,6 @@
 <?php
 
-require_once "C:/xampp/htdocs/DLR/resources/config/db_conection.php";
+require_once "../../config/db_conection.php";
 
 class Producto_model {
 
