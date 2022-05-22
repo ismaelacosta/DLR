@@ -20,7 +20,7 @@
             die();
         }
 
-        include_once "C:/xampp/htdocs/DLR/resources/templates/header_view.php";
+        include_once "../../templates/header_view.php";
 
 
         //Lanza la respuesta si la creacion de cuenta es incorrecta
