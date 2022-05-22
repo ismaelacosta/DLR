@@ -42,7 +42,7 @@
             die();
         }
 
-        include_once "C:/xampp/htdocs/DLR/resources/templates/header_view.php";
+        include_once "../../templates/header_view.php";
 
 
         echo "<font size=5>"."Bienvenido: " . $_SESSION["username"]."</font>"."<br><br>";
@@ -67,7 +67,7 @@
             </table>
         </center>
     <?php
-        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
+        include_once "../../templates/footer_view.php";
 
 
     ?>
