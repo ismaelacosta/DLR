@@ -26,6 +26,43 @@ class Producto_model {
             } 
     }
 
+    public function get_all_products(){
+        $lista_productos = array();
+        try {
+            $sql = "SELECT * FROM producto";
+            $preparacion = $this->db->prepare($sql);
+            $preparacion->execute();
+
+            while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                $lista_productos[]=$filas;
+            }
+
+            return $lista_productos;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        }
+    }
+
+    public function delete_product($id_producto){
+        $eliminado = false;
+        try {
+
+            $sql = "DELETE FROM producto WHERE id_producto= :producto";
+            $resultado = $this->db->prepare($sql);
+            $resultado->bindValue(":producto",$id_producto);
+            $resultado->execute();
+
+            $eliminado = true;
+
+
+            return $eliminado;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return $eliminado;
+        }
+    }
+
 
     public function check_user($usuario, $contrasena){
 
@@ -90,33 +127,7 @@ class Producto_model {
         return $is_empty;
     }
 
-    public function add_user($username, $password, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono){
-
-        $is_empty_username = $this->empty_username($username);
-
-        if($is_empty_username){
-            try {
-
-                $password_cifrada = password_hash($password,PASSWORD_DEFAULT,array("cost"=>12));
     
-                $sql = "INSERT INTO usuario(username,contrasena,calle,codigo_postal,colonia,id_tipo_usuario,telefono) VALUES(?,?,?,?,?,?,?)";
-                $preparacion = $this->db->prepare($sql);
-                $preparacion->execute([$username,$password_cifrada,$calle,$codigo_postal,$colonia,$tipo_usuario,$telefono]);
-    
-                echo "Datos insertados correctamente";
-    
-                return "ok";
-            } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-                return "error";
-            } 
-        }else{
-            return "error-user_created";
-        }
-
-        
-
-    }
 }
 
 
