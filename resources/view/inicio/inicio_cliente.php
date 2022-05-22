@@ -30,7 +30,7 @@
         echo "Bienvenido: " . $_SESSION["username"]. "<br><br>";
     ?>
         <h2>Menú de opciones</h2>
-
+        
         
 
     <?php
