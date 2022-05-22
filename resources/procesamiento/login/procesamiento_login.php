@@ -1,6 +1,6 @@
 <?php
 
-    require_once "C:/xampp/htdocs/DLR/resources/model/login_model.php";
+    require_once "../../model/login_model.php";
 
     $username = htmlentities(addslashes($_POST["username"]));
     

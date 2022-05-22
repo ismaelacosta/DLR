@@ -1,6 +1,6 @@
 <?php
 
-require_once "C:/xampp/htdocs/DLR/resources/config/db_conection.php";
+require_once "../../config/db_conection.php";
 
 class Login_model {
 
@@ -74,18 +74,19 @@ class Login_model {
         return $is_empty;
     }
 
-    public function add_user($username, $password, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono){
+    public function add_user($username, $password,$email, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono){
 
         $is_empty_username = $this->empty_username($username);
+        echo $is_empty_username;
 
         if($is_empty_username){
             try {
 
                 $password_cifrada = password_hash($password,PASSWORD_DEFAULT,array("cost"=>12));
     
-                $sql = "INSERT INTO usuario(username,contrasena,calle,codigo_postal,colonia,id_tipo_usuario,telefono) VALUES(?,?,?,?,?,?,?)";
+                $sql = "INSERT INTO usuario(username,contrasena,email,calle,codigo_postal,colonia,telefono,id_tipo_usuario) VALUES(?,?,?,?,?,?,?,?)";
                 $preparacion = $this->db->prepare($sql);
-                $preparacion->execute([$username,$password_cifrada,$calle,$codigo_postal,$colonia,$tipo_usuario,$telefono]);
+                $preparacion->execute([$username,$password_cifrada,$email,$calle,$codigo_postal,$colonia,$telefono,$tipo_usuario]);
     
                 echo "Datos insertados correctamente";
     

@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-        include_once "C:/xampp/htdocs/DLR/resources/templates/header_view.php";
+        include_once "../../templates/header_view.php";
 
         //Lanza la respuesta si la creacion de cuenta es incorrecta
         if(isset($_GET['status'])  || isset($_GET["action"])){
@@ -52,7 +52,7 @@
         </form>
     </div>
     <?php
-        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
+        include_once "../../templates/footer_view.php";
 
 
     ?>
