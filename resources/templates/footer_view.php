@@ -52,7 +52,7 @@
         -webkit-overflow-scrolling: touch;
       }
       footer{
-        background-image:url("https://media.istockphoto.com/photos/abstract-pastel-coloured-paper-texture-minimalism-background-minimal-picture-id921659184?k=6&m=921659184&s=170667a&w=0&h=Pbp6R8nMdQaRQZW4F0YVahiJSNf5NGK3213xblCmy0U=");
+        background-color:rgb(255,147,255);
       }
     </style>
 
@@ -62,15 +62,18 @@
 
 <div class="container-fluid">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-muted">&copy; 2022 DLR</p>
+    <p class="col-md-4 mb-0 text-muted"><b><font color="white"> &copy; 2022 DLR </font></b></p>
 
 
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Página principal</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Catálogo</a></li>
-      <li class="nav-item"><a href="http://localhost/DLR/resources/view/Encabezado/Acerca_De_Nosotros.php" class="nav-link px-2 text-muted">Acerca de nosotros</a></li>
+      
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><b><font color="white">Página principal</font></b></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><b><font color="white">Catálogo</font></b></a></li>
+      <li class="nav-item"><a href="http://localhost/DLR/resources/view/Encabezado/Acerca_De_Nosotros.php" class="nav-link px-2 text-muted"><b><font color="white">Acerca de nosotros</font></b></a></li>
+
     </ul>
+    
   </footer>
 </div>
 

@@ -37,11 +37,10 @@
 
     <div class="container centrar_contenido">
         <form method="POST" action="../../procesamiento/producto/procesamiento_agregar_producto.php">
-            <div class="mb-3">
+    
             <label for="nombre_producto" class="form-label">Nombre Producto</label>
             <input type="text" class="" id="nombre_producto" name="nombre_producto" required>
-            </div>
-            <div class="mb-3">
+
             <label for="contenido_piezas" class="form-label">Contenido piezas</label>
             <input type="text" id="contenido_piezas" name="contenido_piezas" required>
 
@@ -58,7 +57,7 @@
             <input type="text" id="url_imagen" name="url_imagen" required>
 
             <input type="submit" value="Agregar producto">
-            </div>
+ 
         </form>
     </div>
     <?php

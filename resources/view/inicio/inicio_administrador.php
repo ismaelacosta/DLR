@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../public_html/css/styles.css">
 </head>
+
+<style>
+    td{
+        padding:5px;
+    }
+</style>
+
 <body>
     <?php
         //Seguridad acceso al sitio
@@ -25,11 +32,21 @@
         include_once "../../templates/header_view.php";
 
 
-        echo "hola: " . $_SESSION["username"]. "<br><br>";
+        echo "<font size=6>"."Bienvenido: " . $_SESSION["username"]. "</font><br><br>";
     ?>
-
-    <a href="../producto/agregar_producto_view.php">Registrar nuevo producto</a>
-    <a href="../producto/listar_productos_view.php">Productos a la venta</a>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <a href="../producto/agregar_producto_view.php"> <img src="https://th.bing.com/th/id/OIP.6ZAO7T4vIUI8LJ1bCAZ9WAHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Registrar nuevo producto</font> 
+                </td>
+                <td>
+                    <a href="../producto/listar_productos_view.php"><img src="https://th.bing.com/th/id/OIP.OxXhWlD77aQFElCFAqQx3gHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Productos a la venta</font>
+                </td>
+            </tr>
+        </table>
+    </center>
+    
 
     
 
