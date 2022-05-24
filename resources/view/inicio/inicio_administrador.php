@@ -29,7 +29,7 @@
             die();
         }
 
-        include_once "../../templates/header_view.php";
+        include_once "../../templates/header_administrador.php";
 
 
         echo "<font size=6>"."Bienvenido: " . $_SESSION["username"]. "</font><br><br>";
@@ -52,7 +52,7 @@
 
 
     <?php
-        include_once "../../templates/footer_view.php";
+        include_once "../../templates/footer_administrador.php";
 
 
     ?>

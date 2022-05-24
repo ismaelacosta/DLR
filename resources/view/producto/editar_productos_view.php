@@ -20,7 +20,7 @@
             die();
         }
 
-        include_once "../../templates/header_view.php";
+        include_once "../../templates/header_administrador.php";
         require_once "../../model/producto_model.php";
 
 
@@ -54,6 +54,9 @@
             
             <label for="nombre_producto" class="form-label">Nombre Producto</label>
             <input type="text" value="<?php echo $producto["nombre_producto"];?>" class="" id="nombre_producto" name="nombre_producto" required>
+
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" value="<?php echo $producto["descripcion"];?>" class="" id="descripcion" name="descripcion" required>
             </div>
             <div class="mb-3">
             <label for="contenido_piezas" class="form-label">Contenido piezas</label>
@@ -79,7 +82,7 @@
     <?php
         } // llave del for each
             } // llave del else
-        include_once "../../templates/footer_view.php";
+        include_once "../../templates/footer_administrador.php";
 
 
     ?>

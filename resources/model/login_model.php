@@ -49,6 +49,20 @@ class Login_model {
 
     }
 
+    public function get_id_username_by_username($username){
+        $sql = "SELECT id_usuario FROM usuario WHERE username= :usuario";
+        $resultado = $this->db->prepare($sql);
+
+        $resultado->bindValue(":usuario",$username);
+
+        $resultado->execute();
+
+        foreach($resultado as $dato){
+            return $dato["id_usuario"];
+        }
+
+    }
+
 
     public function empty_username($usuario){
 

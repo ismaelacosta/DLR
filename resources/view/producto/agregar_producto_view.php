@@ -20,7 +20,7 @@
             die();
         }
 
-        include_once "../../templates/header_view.php";
+        include_once "../../templates/header_administrador.php";
 
 
         //Lanza la respuesta si la creacion de cuenta es incorrecta
@@ -41,6 +41,9 @@
             <label for="nombre_producto" class="form-label">Nombre Producto</label>
             <input type="text" class="" id="nombre_producto" name="nombre_producto" required>
 
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="" id="descripcion" name="descripcion" required>
+
             <label for="contenido_piezas" class="form-label">Contenido piezas</label>
             <input type="text" id="contenido_piezas" name="contenido_piezas" required>
 
@@ -60,8 +63,20 @@
  
         </form>
     </div>
+
+    <div class="container centrar_contenido">
+        <div class="row">
+            <div class="col-12">
+                <a href="listar_productos_view.php">Lista Producto</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    
     <?php
-        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_view.php";
+        include_once "C:/xampp/htdocs/DLR/resources/templates/footer_administrador.php";
 
 
     ?>

@@ -10,12 +10,12 @@ class Producto_model {
         $this->db = Conectar::conexion();
     }
 
-    public function add_producto($nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen){
+    public function add_producto($nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen,$descripcion){
         
         try {
-                $sql = "INSERT INTO producto(nombre_producto,contenido_piezas,marca,precio,existencias,url_imagen) VALUES(?,?,?,?,?,?)";
+                $sql = "INSERT INTO producto(nombre_producto,contenido_piezas,marca,precio,existencias,url_imagen,descripcion) VALUES(?,?,?,?,?,?,?)";
                 $preparacion = $this->db->prepare($sql);
-                $preparacion->execute([$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen]);
+                $preparacion->execute([$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen,$descripcion]);
     
                 echo "Datos insertados correctamente";
     
@@ -30,6 +30,24 @@ class Producto_model {
         $lista_productos = array();
         try {
             $sql = "SELECT * FROM producto";
+            $preparacion = $this->db->prepare($sql);
+            $preparacion->execute();
+
+            while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                $lista_productos[]=$filas;
+            }
+
+            return $lista_productos;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        }
+    }
+
+    public function get_all_products_with_existences(){
+        $lista_productos = array();
+        try {
+            $sql = "SELECT * FROM producto where existencias>0";
             $preparacion = $this->db->prepare($sql);
             $preparacion->execute();
 
@@ -64,12 +82,30 @@ class Producto_model {
         }
     }
 
-    public function set_producto_by_id($id_producto,$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen){
+    public function count_all_products(){
+        $cantidad;
+        try {
+            $sql = "SELECT COUNT(id_producto) as dato FROM producto WHERE existencias>0";
+            $preparacion = $this->db->prepare($sql);
+            $preparacion->execute();
+
+            while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                $cantidad=$filas["dato"];
+            }            
+
+            return $cantidad;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        }
+    }
+
+    public function set_producto_by_id($id_producto,$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen,$descripcion){
         try {
 
             echo $id_producto;
 
-            $sql = "UPDATE producto SET nombre_producto= :nombre_producto, contenido_piezas= :contenido_piezas,marca= :marca,precio= :precio,existencias= :existencias,url_imagen= :url_imagen WHERE id_producto= :id_producto";
+            $sql = "UPDATE producto SET nombre_producto= :nombre_producto, contenido_piezas= :contenido_piezas,marca= :marca,precio= :precio,existencias= :existencias,url_imagen= :url_imagen,descripcion= :descripcion WHERE id_producto= :id_producto";
             $preparacion = $this->db->prepare($sql);
 
             $preparacion->bindValue(":nombre_producto",$nombre_producto);
@@ -78,6 +114,7 @@ class Producto_model {
             $preparacion->bindValue(":precio",$precio);
             $preparacion->bindValue(":existencias",$existencias);
             $preparacion->bindValue(":url_imagen",$url_imagen);
+            $preparacion->bindValue(":descripcion",$descripcion);
             $preparacion->bindValue(":id_producto",$id_producto);
 
 
@@ -109,73 +146,7 @@ class Producto_model {
             echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return $eliminado;
         }
-    }
-
-
-    public function check_user($usuario, $contrasena){
-
-        $login = false;
-        try {
-            $sql = "SELECT * FROM usuario WHERE username= :usuario";
-            $resultado = $this->db->prepare($sql);
-
-           $resultado->bindValue(":usuario",$usuario);
-           //$resultado->bindValue(":contrasena",$contrasena);
-
-            $resultado->execute();
-
-            foreach ($resultado as $dato) {
-                if(password_verify($contrasena,$dato["contrasena"])){
-                    $login = true;
-                    break;
-                }
-            }
-        } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-        }
-        return $login;
-    }
-
-    public function type_user($username){
-        $sql = "SELECT tipo_usuario.tipo_usuario FROM usuario,tipo_usuario WHERE usuario.id_tipo_usuario=tipo_usuario.id_tipo_usuario AND username = :usuario";
-        $resultado = $this->db->prepare($sql);
-
-        $resultado->bindValue(":usuario",$username);
-
-        $resultado->execute();
-
-        foreach($resultado as $dato){
-            return $dato["tipo_usuario"];
-        }
-
-    }
-
-
-    public function empty_username($usuario){
-
-        $is_empty = true;
-        try {
-            $sql = "SELECT username FROM usuario WHERE username= :usuario";
-            $resultado = $this->db->prepare($sql);
-            
-            $resultado->bindValue(":usuario",$usuario);
-
-            $resultado->execute();
-
-            foreach ($resultado as $dato) {
-                if($dato["username"] != null){
-                    $is_empty=false;
-                }
-            }
-
-            
-        } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-        }
-        return $is_empty;
-    }
-
-    
+    }    
 }
 
 

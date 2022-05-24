@@ -31,6 +31,7 @@
 
 <body>
     <?php
+        require_once($_SERVER["DOCUMENT_ROOT"] . "/DLR/resources/config/config.php");
         //Seguridad acceso al sitio
 
         session_start();
@@ -42,7 +43,7 @@
             die();
         }
 
-        include_once "../../templates/header_view.php";
+        include_once TEMPLATES_PATH . "header_view.php";
 
 
         echo "<font size=5>"."Bienvenido: " . $_SESSION["username"]."</font>"."<br><br>";
@@ -54,7 +55,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <a href="#"> <img src="https://th.bing.com/th/id/R.f54a9fa055d4ceec553b51ece7a3d0a2?rik=HyvaX4dCYexl4w&riu=http%3a%2f%2fwww.francescoalbani.com%2fmateriale%2fcart_icon.png&ehk=qnVj0LWoc4HfyerFMSsissFkA9TdjZVr%2fgQKbJnr07I%3d&risl=&pid=ImgRaw&r=0" weidht="300" height="300"> </a> <BR> <font size=5>Catálogo</font> 
+                            <a href="../cliente/catalogo_view.php"> <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png" weidht="300" height="300"> </a> <BR> <font size=5>Catalogo</font> 
                         </td>
                         <td>
                             <a href="#"> <img src="https://www.gaestehaeuser-weinstrasse.de/wp-content/uploads/2020/07/icons5.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
@@ -67,7 +68,7 @@
             </table>
         </center>
     <?php
-        include_once "../../templates/footer_view.php";
+        include_once TEMPLATES_PATH . "footer_view.php";
 
 
     ?>

@@ -1,7 +1,6 @@
 <?php
     require_once "../../model/login_model.php";
 
-    echo "entro";
 
     $login_model = new Login_model();
 

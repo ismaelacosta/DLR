@@ -4,6 +4,7 @@
     $producto_model = new Producto_model();
 
     $nombre_producto = htmlentities(addslashes($_POST["nombre_producto"]));
+    $descripcion = htmlentities(addslashes($_POST["descripcion"]));
     
     $contenido_piezas = htmlentities(addslashes($_POST["contenido_piezas"]));
     $marca = htmlentities(addslashes($_POST["marca"]));
@@ -12,7 +13,7 @@
     $url_imagen = htmlentities(addslashes($_POST["url_imagen"]));
 
 
-    $respuesta = $producto_model->add_producto($nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen);
+    $respuesta = $producto_model->add_producto($nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen,$descripcion);
 
     if ($respuesta == "ok") {
         header("location: ../../view/producto/agregar_producto_view.php?status=ok&action=producto_creado");

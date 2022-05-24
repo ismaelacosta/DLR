@@ -56,7 +56,7 @@
                                 <label for="password" class="form-label"><font size="5"> <b>Contraseña</b></font></label>
                             </td>
                             <td>
-                                <font size=4><input type="text" id="password" name="password"></font>
+                                <font size=4><input type="password" id="password" name="password"></font>
                             </td>
                             <td>
                                 <font size=4><input type="submit" value="Login"></font> 

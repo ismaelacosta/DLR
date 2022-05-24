@@ -22,7 +22,7 @@
             die();
         }
 
-        include_once "../../templates/header_view.php";
+        include_once "../../templates/header_administrador.php";
         require_once "../../model/producto_model.php";
 
         //Lanza la respuesta si el inicio de sesion es incorrecto
@@ -55,6 +55,7 @@
         <tr>
         <th scope="col">#</th>
         <th scope="col">Producto</th>
+        <th scope="col">Descripción</th>
         <th scope="col">Piezas</th>
         <th scope="col">Marca</th>
         <th scope="col">Precio</th>
@@ -70,6 +71,7 @@
         <tr>
             <th scope="row"><?php echo $fila["id_producto"];  ?></th>
             <td><?php echo $fila["nombre_producto"];  ?></td>
+            <td><?php echo $fila["descripcion"];  ?></td>
             <td><?php echo $fila["contenido_piezas"];  ?></td>
             <td><?php echo $fila["marca"];  ?></td>
             <td><?php echo $fila["precio"];  ?></td>
@@ -93,9 +95,20 @@
     </table>
 </div>
 
+<div class="container centrar_contenido">
+        <div class="row">
+            <div class="col-12">
+                <a href="agregar_producto_view.php">Agregar Producto</a>
+            </div>
+        </div>
+
+    </div>
 
 
+<?php
+    include_once "../../templates/footer_administrador.php";
 
+?>
 
     
 </body>
