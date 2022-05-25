@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../public_html/css/styles.css">
 </head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Overpass&display=swap');
+    td{
+        font-family: 'Francois One', sans-serif;
+    }
+    table{
+        font-size:30px;
+    }
+    input.boton{
+        background:pink;
+    }
+
+</style>
+
 <body>
     <?php
         session_start();
@@ -37,44 +52,82 @@
 
     <div class="container centrar_contenido">
         <form method="POST" action="../../procesamiento/producto/procesamiento_agregar_producto.php">
-    
-            <label for="nombre_producto" class="form-label">Nombre Producto</label>
-            <input type="text" class="" id="nombre_producto" name="nombre_producto" required>
-
-            <label for="descripcion" class="form-label">Descripción</label>
-            <input type="text" class="" id="descripcion" name="descripcion" required>
-
-            <label for="contenido_piezas" class="form-label">Contenido piezas</label>
-            <input type="text" id="contenido_piezas" name="contenido_piezas" required>
-
-            <label for="marca" class="form-label">Marca</label>
-            <input type="text" id="marca" name="marca" required>
-
-            <label for="precio" class="form-label">Precio</label>
-            <input type="text" id="precio" name="precio" required>
-
-            <label for="existencias" class="form-label">Existencias</label>
-            <input type="text" id="existencias" name="existencias" required>
-
-            <label for="url_imagen" class="form-label">URL de la imagen del producto</label>
-            <input type="text" id="url_imagen" name="url_imagen" required>
-
-            <input type="submit" value="Agregar producto">
- 
+     
         </form>
     </div>
-
-    <div class="container centrar_contenido">
-        <div class="row">
-            <div class="col-12">
-                <a href="listar_productos_view.php">Lista Producto</a>
-            </div>
-        </div>
-
+    <div class="centrar_contenido">
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        <label for="nombre_producto" class="form-label">Nombre Producto</label>
+                    </td>
+                    <td>
+                        <input type="text" class="" id="nombre_producto" name="nombre_producto" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="descripcion" class="form-label">Descripción</label>
+                    </td>
+                    <td>
+                        <input type="text" class="" id="descripcion" name="descripcion" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contenido_piezas" class="form-label">Contenido piezas</label>
+                    </td>
+                    <td>
+                        <input type="text" id="contenido_piezas" name="contenido_piezas" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="marca" class="form-label">Marca</label>
+                    </td>
+                    <td>
+                        <input type="text" id="marca" name="marca" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="precio" class="form-label">Precio</label>
+                    </td>
+                    <td>
+                        <input type="text" id="precio" name="precio" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="existencias" class="form-label">Existencias</label>
+                    </td>
+                    <td>
+                        <input type="text" id="existencias" name="existencias" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="url_imagen" class="form-label">URL de la imagen del producto</label>
+                    </td>
+                    <td>
+                        <input type="text" id="url_imagen" name="url_imagen" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <br>
+                        <input type="submit" value="Agregar producto" style="width:100%" class="boton">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <br>
+                         <a  href="listar_productos_view.php"><font size="6"> <b><input type="submit" value="Ir a lista de productos" style="width:100%"  class="boton"></b></font> </a>
+                    </td>
+                </tr>
+            </table>
+        </center>
     </div>
 
-
-    
     <?php
         include_once "C:/xampp/htdocs/DLR/resources/templates/footer_administrador.php";
 
