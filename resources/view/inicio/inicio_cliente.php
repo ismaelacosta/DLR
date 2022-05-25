@@ -67,6 +67,7 @@
                 </tbody>
             </table>
         </center>
+        <a href="../cliente/carrito_view.php">Carrito</a>
     <?php
         include_once TEMPLATES_PATH . "footer_view.php";
 
