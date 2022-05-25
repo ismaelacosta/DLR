@@ -65,7 +65,8 @@
       </a>
       <ul class="nav nav-pills">
 
-        <li class="nav-item"><a href="../inicio/inicio_cliente.php"class="nav-link"><b><font color="black">Página principal</font></b></a></li>
+        <li class="nav-item"><a href="../../../index.php"class="nav-link"><b><font color="black">Página principal</font></b></a></li>
+        <li class="nav-item"><a href="../cliente/carrito_view.php" class="nav-link"><b><font color="black">Carrito</font></b></a></li> 
         <li class="nav-item"><a href="../../procesamiento/login/procesamiento_cerrar_sesion.php" class="nav-link"><b><font color="black">Cerrar sesión</font></b></a></li>
         <li class="nav-item"><a href="../Encabezado/Acerca_De_Nosotros.php" class="nav-link"><b><font color="black">Acerca de nosotros</font></b></a></li>        
       </ul>

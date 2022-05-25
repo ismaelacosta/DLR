@@ -1,6 +1,7 @@
 <?php
 
 require_once "../../config/db_conection.php";
+require_once "../../model/producto_model.php";
 
 class Producto_model {
 
