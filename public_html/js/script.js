@@ -42,3 +42,7 @@ function cargaPagina() {
     }
     precio_total.value=total;
 }
+
+function redireccionar_agregar_producto(){
+    window.location="agregar_producto_view.php";
+}
