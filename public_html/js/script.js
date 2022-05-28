@@ -41,6 +41,7 @@ function cargaPagina() {
         total = parseFloat(total) + parseFloat(elemento.value);        
     }
     precio_total.value=total;
+    return precio_total;
 }
 
 function redireccionar_agregar_producto(){

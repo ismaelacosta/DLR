@@ -57,6 +57,82 @@
             return $es_duplicado;
         }
 
+        public function add_venta($username,$lista_unidades,$lista_productos,$codigo_transaccion){
+            $id_usuario = $this->login_model->get_id_username_by_username($username);
+            
+                try {
+
+                    $cadena_values = "";
+                    $contador = 0;
+                    $limite = count($lista_unidades);
+                    foreach ($lista_productos as $key) {
+                        if (($contador + 1) == $limite ) {
+                            $cadena_values= $cadena_values . "(".$id_usuario . ",".$key["id_producto"]."," . $lista_unidades[$contador] .',NOW(),"pendiente","' . $codigo_transaccion . '")';
+                        }else{
+                            $cadena_values= $cadena_values . "(".$id_usuario . ",".$key["id_producto"]."," . $lista_unidades[$contador] .',NOW(),"pendiente","' . $codigo_transaccion . '"),';
+                        }
+                        $contador++;
+                    }
+                    $sql = "INSERT INTO ventas(id_usuario,id_producto,cantidad_venta,fecha_venta,status,codigo_transaccion)values " . $cadena_values;
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->execute();
+
+                    $this->remove_items_from_products($lista_unidades,$lista_productos);
+                    $this->remove_carrito($username);
+        
+                    echo "Datos insertados correctamente";
+        
+                    return "ok";
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+                } 
+            }
+
+        public function remove_items_from_products($lista_unidades,$lista_productos){
+            try {
+                $contador = 0;
+                foreach ($lista_productos as $fila) {
+                
+                $sql = "UPDATE producto SET existencias=existencias - :existencias WHERE id_producto= :id_producto";
+                $preparacion = $this->db->prepare($sql);
+    
+                $preparacion->bindValue(":existencias",$lista_unidades[$contador]);
+                $preparacion->bindValue(":id_producto",$fila["id_producto"]);
+    
+    
+                $preparacion->execute();
+    
+                echo "Datos Actualizados correctamente";
+                $contador++;
+                }
+    
+                return "ok";
+            } catch (Exception $e) {
+                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                return "error";
+            } 
+        } 
+
+        public function remove_carrito($username){
+            $id_usuario = $this->login_model->get_id_username_by_username($username);
+            try {
+    
+                $sql = "DELETE FROM carrito WHERE id_usuario= :usuario";
+                $preparacion = $this->db->prepare($sql);
+
+                $preparacion->bindValue(":usuario",$id_usuario);
+                $preparacion->execute();
+    
+                echo "Carrito eliminado correctamente";
+    
+                return "ok";
+            } catch (Exception $e) {
+                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                return "error";
+            } 
+        }
+
         public function add_producto_carrito_cliente($id_producto,$username){
             $id_usuario = $this->login_model->get_id_username_by_username($username);
             $es_duplicado = $this->es_duplicado_carrito($id_producto,$id_usuario);

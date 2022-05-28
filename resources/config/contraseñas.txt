@@ -3,3 +3,13 @@ Base de datos
 nombre base de datos = dlr
 usuario: root
 contraseña : &R}ha\YD(hu6hrk
+
+
+Cliente
+sb-6te1z16685259@personal.example.com
+MW?0u8bC
+
+
+Vendedor
+sb-kc1qo16712198@business.example.com
+9TdX%JGq

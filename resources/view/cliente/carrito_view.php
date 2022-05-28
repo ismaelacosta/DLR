@@ -75,6 +75,8 @@
 
 
 
+
+
 <div class="container">
     <table class="table">
     <thead>
@@ -124,6 +126,7 @@
 
         <?php $contador++; } ?>
         <tr>
+            <input id="unidades" type="text" value="">
             <input id="contador" type="hidden" value="<?php echo $contador; ?>">
             <td colspan="8">Total a pagar</td>
             <td colspan="2"><input type="text" id="precio_total" value="" disabled/></td>
@@ -132,8 +135,125 @@
     </table>
 </div>
 
+<?php   if ($contador!=1) { ?>
+    <div class="container centrar_contenido">
+    <div id="paypal-button-container"></div>
+    </div>
+<?php } ?>
+
+
+
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AZGX4k1C2Ror3qk2Yrl8Hh0clPAnhmMxGNB3ny_UO0vowZznSw1y1ArvciOKXsHub2J0SHe5atoJVeok&currency=MXN"></script>
+
+    <script>
+        var lista_unidades_productos = new Array();
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                var precio_total = document.getElementById("precio_total").value;
+                var resultado = precio_total.toString();
+
+                
+                <?php $lista_unidades = array()  ?>  
+
+                var contador = document.getElementById("contador");
+                for (let index = 1; index < contador.value; index++) {
+                    elemento = document.getElementById("cantidad_a_comprar_"+index).value;
+                    lista_unidades_productos.push(elemento.toString());
+                    
+                } 
+                console.log(lista_unidades_productos); 
+                return actions.order.create({
+                    "purchase_units": [{
+
+                    "amount": {
+
+                    "currency_code": "MXN",
+
+                    "value": resultado,
+
+                    "breakdown": {
+
+                        "item_total": {  /* Required when including the `items` array */
+
+                        "currency_code": "MXN",
+
+                        "value": resultado
+
+                        }
+
+                    }
+
+                    },
+
+                    "items": [
+
+                        <?php 
+                                $elemento = 0;
+                                foreach ($lista_productos as $fila) { 
+                            ?>
+                        {
+                            "name": "<?php echo  $fila["nombre_producto"]; ?>", /* Shows within upper-right dropdown during payment approval */
+                            "description": "<?php echo  $fila["descripcion"]; ?>", /* Item details will also be in the completed paypal.com transaction view */
+                            "unit_amount": {
+                            "currency_code": "MXN",
+                            "value": "<?php echo  $fila["precio"]; ?>"
+                            },
+                            "quantity": lista_unidades_productos[<?php echo $elemento; ?>]
+                        },
+
+                        <?php $elemento ++; } ?>
+
+                    ]
+
+                    }]
+
+                    });
+
+                    },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                    var unidades = document.getElementById("unidades");
+
+                    for (let index = 0; index < lista_unidades_productos.length; index++) {
+                        var element = lista_unidades_productos[index];
+                        if((index+1)== lista_unidades_productos.length) {
+                            unidades.value = unidades.value+element;
+                        }else{
+                            unidades.value = unidades.value+element+",";
+                        }
+                        
+                    }
+
+                     window.location="../../procesamiento/cliente/procesamiento_pago.php?codigo_transaccion="+transaction.id+"&lista="+unidades.value;
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+
+
+
 <div class="container centrar_contenido">
         <div class="row">
+            
             <div class="col-12">
                 <a href="catalogo_view.php">Catalogo</a>
             </div>
@@ -149,6 +269,9 @@
 
 
 <script src="../../../public_html/js/script.js"></script>
+
+
+
     
 </body>
 </html>
