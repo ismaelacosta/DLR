@@ -58,16 +58,19 @@
                             <a href="../cliente/catalogo_view.php"> <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png" weidht="300" height="300"> </a> <BR> <font size=5>Catalogo</font> 
                         </td>
                         <td>
-                            <a href="#"> <img src="https://www.gaestehaeuser-weinstrasse.de/wp-content/uploads/2020/07/icons5.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
+                            <a href="#"> <img src="https://i.pinimg.com/originals/83/d2/1d/83d21d70a88d2c42aec5ec9cce33534b.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
                         </td>
                         <td>
-                            <a href="#"> <img src="https://th.bing.com/th/id/R.76654c1ccf9a3d2be9f9894bac07a79b?rik=QBkBlxEFtZrMSw&riu=http%3a%2f%2ficon-icons.com%2ficons2%2f827%2fPNG%2f512%2fuser_icon-icons.com_66546.png&ehk=3sdp0gGBFfN4qR2HRKjXLoNmu6wMTj3hP7ZN1p1IxXo%3d&risl=&pid=ImgRaw&r=0" weidht="300" height="300"> </a> <BR> <font size=5>Información de la cuenta</font> 
+                            <a href="#"> <img src="https://th.bing.com/th/id/OIP.JcyOCcIiAE0TppIu7PkTZgHaHa?pid=ImgDet&rs=1" weidht="300" height="300"> </a> <BR> <font size=5>Información de la cuenta</font> 
+                        </td>
+                        <td>
+                            <a href="../cliente/carrito_view.php"> <img src="https://th.bing.com/th/id/OIP.PX5xd2SXv_0Vd-ivxfw4GQHaHa?pid=ImgDet&rs=1" weidht="300" height="300"></a> <BR> <font size=5>Carrito</font> 
                         </td>
                     </tr>
                 </tbody>
             </table>
         </center>
-        <a href="../cliente/carrito_view.php">Carrito</a>
+        
     <?php
         include_once TEMPLATES_PATH . "footer_view.php";
 

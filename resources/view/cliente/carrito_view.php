@@ -255,7 +255,7 @@
         <div class="row">
             
             <div class="col-12">
-                <a href="catalogo_view.php">Catalogo</a>
+                <a href="catalogo_view.php"> <img src="https://th.bing.com/th/id/OIP.Rnuqq9SnWz0CsaWycB9kcAHaHa?pid=ImgDet&rs=1" height="200" weidht="200"> </a> <br> <font size=5>Volver al catálogo</font>
             </div>
         </div>
 
