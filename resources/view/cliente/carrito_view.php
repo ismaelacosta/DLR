@@ -126,7 +126,7 @@
 
         <?php $contador++; } ?>
         <tr>
-            <input id="unidades" type="text" value="">
+            <input id="unidades" type="hidden" value="">
             <input id="contador" type="hidden" value="<?php echo $contador; ?>">
             <td colspan="8">Total a pagar</td>
             <td colspan="2"><input type="text" id="precio_total" value="" disabled/></td>

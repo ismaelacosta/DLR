@@ -49,27 +49,19 @@
         echo "<font size=5>"."Bienvenido: " . $_SESSION["username"]."</font>"."<br><br>";
     ?>
 
-        <center>
-            <h2> <font size=10> Menú de opciones</font></h2> <BR>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="../cliente/catalogo_view.php"> <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png" weidht="300" height="300"> </a> <BR> <font size=5>Catalogo</font> 
-                        </td>
-                        <td>
-                            <a href="#"> <img src="https://i.pinimg.com/originals/83/d2/1d/83d21d70a88d2c42aec5ec9cce33534b.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
-                        </td>
-                        <td>
-                            <a href="#"> <img src="https://th.bing.com/th/id/OIP.JcyOCcIiAE0TppIu7PkTZgHaHa?pid=ImgDet&rs=1" weidht="300" height="300"> </a> <BR> <font size=5>Información de la cuenta</font> 
-                        </td>
-                        <td>
-                            <a href="../cliente/carrito_view.php"> <img src="https://th.bing.com/th/id/OIP.PX5xd2SXv_0Vd-ivxfw4GQHaHa?pid=ImgDet&rs=1" weidht="300" height="300"></a> <BR> <font size=5>Carrito</font> 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </center>
+    <div class="container centrar_contenido">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3"><a href="../cliente/catalogo_view.php"> <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png" weidht="300" height="300"> </a> <BR> <font size=5>Catalogo</font> 
+</div>
+            <div class="col-xs-12 col-sm-3"><a href="../cliente/compras_realizadas_view.php"> <img src="https://i.pinimg.com/originals/83/d2/1d/83d21d70a88d2c42aec5ec9cce33534b.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
+</div>
+            <div class="col-xs-12 col-sm-3"><a href="../cliente/informacion_cuenta_view.php"> <img src="https://th.bing.com/th/id/OIP.JcyOCcIiAE0TppIu7PkTZgHaHa?pid=ImgDet&rs=1" weidht="300" height="300"> </a> <BR> <font size=5>Información de la cuenta</font> 
+</div>
+            <div class="col-xs-12 col-sm-3"><a href="../cliente/carrito_view.php"> <img src="https://th.bing.com/th/id/OIP.PX5xd2SXv_0Vd-ivxfw4GQHaHa?pid=ImgDet&rs=1" weidht="300" height="300"></a> <BR> <font size=5>Carrito</font> 
+</div>
+        </div>
+    </div>
+
         
     <?php
         include_once TEMPLATES_PATH . "footer_view.php";

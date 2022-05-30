@@ -10,6 +10,28 @@ class Login_model {
         $this->db = Conectar::conexion();
     }
 
+    public function get_account_information($username){
+        $informacion_cuenta = array();
+        $id_usuario = $this->get_id_username_by_username($username);
+        try {
+            $sql = "SELECT * FROM usuario WHERE id_usuario = :usuario limit 1";
+            $preparacion = $this->db->prepare($sql);
+            $preparacion->bindValue(":usuario",$id_usuario);
+            $preparacion->execute();
+
+            while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                $lista_productos[]=$filas;
+            }
+
+            return $informacion_cuenta;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        }
+    }
+
+    
+
 
     public function check_user($usuario, $contrasena){
 

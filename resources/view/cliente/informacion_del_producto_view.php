@@ -33,7 +33,7 @@
             die();
         }
 
-        include_once "../../templates/header_administrador.php";
+        include_once "../../templates/header_view.php";
         require_once "../../model/producto_model.php";
 
         //Lanza la respuesta si el inicio de sesion es incorrecto

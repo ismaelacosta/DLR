@@ -202,6 +202,27 @@
                     return "error";
                 }
             }
+
+
+            public function get_customer_purchases($username){
+                $lista_productos = array();
+                $id_usuario = $this->login_model->get_id_username_by_username($username);
+                try {
+                    $sql = "SELECT producto.nombre_producto,producto.url_imagen,ventas.cantidad_venta,producto.precio,(producto.precio*ventas.cantidad_venta) as 'total', ventas.fecha_venta FROM ventas,producto WHERE producto.id_producto=ventas.id_producto AND ventas.id_usuario= :usuario";
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->bindValue(":usuario",$id_usuario);
+                    $preparacion->execute();
+        
+                    while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                        $lista_productos[]=$filas;
+                    }
+        
+                    return $lista_productos;
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+                }
+            }
             
     }
 
