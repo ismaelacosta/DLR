@@ -5,6 +5,9 @@
     session_start();
 
     $codigo_transaccion = htmlentities(addslashes($_GET["codigo_transaccion"]));
+    
+    $_SESSION["codigoTransaccion"]=$codigo_transaccion;
+
     $unidades_de_productos = htmlentities(addslashes($_GET["lista"]));
     $resultado = str_replace(","," ",$unidades_de_productos);
     $porciones = explode(" ", $resultado);

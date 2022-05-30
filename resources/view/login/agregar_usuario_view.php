@@ -9,6 +9,23 @@
     <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../public_html/css/styles.css">
 </head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Overpass&display=swap');
+    td{
+        font-family: 'Francois One', sans-serif;
+    }
+    table{
+        font-size:30px;
+    }
+    input.boton{
+        background:pink;
+        width:"100";
+    }
+
+</style>
+
+
 <body>
     <?php
         include_once "../../templates/header_view.php";
@@ -23,37 +40,79 @@
     ?>
 
     <div class="container centrar_contenido">
-        <form method="POST" action="../../procesamiento/login/procesamiento_agregar_usuario.php">
-            <div class="mb-3">
-            <label for="username" class="form-label">Nombre de usuario</label>
-            <input type="text" class="" id="username" name="username" placeholder="pablito123" required>
-            </div>
-            <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" id="password" name="password" required>
+        
+            <center>
+                <form method="POST" action="../../procesamiento/login/procesamiento_agregar_usuario.php">
+                <div class="mb-3">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                        </td>
+                        <td>
+                            <input type="text" class="" id="username" name="username" placeholder="Pablito123" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password" class="form-label">Contraseña</label>
 
-            <label for="email" class="form-label">Correo electronico</label>
-            <input type="text" id="email" name="email" required>
-
-            <label for="codigo_postal" class="form-label">Código postal</label>
-            <input type="text" id="codigo_postal" name="codigo_postal" required>
-
-            <label for="calle" class="form-label">Calle</label>
-            <input type="text" id="calle" name="calle" required>
-
-            <label for="colonia" class="form-label">Colonia</label>
-            <input type="text" id="colonia" name="colonia" required>
-
-            <label for="telefono" class="form-label">Telefono</label>
-            <input type="text" id="telefono" name="telefono" required>
-
-            <input type="submit" value="Crear cuenta">
-            </div>
-        </form>
+                        </td>
+                        <td>
+                            <input type="password" id="password" name="password" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email" class="form-label">Correo electronico</label>
+                        </td>
+                        <td>
+                            <input type="text" id="email" name="email" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="codigo_postal" class="form-label">Código postal</label>
+                        </td>
+                        <td>
+                            <input type="text" id="codigo_postal" name="codigo_postal" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="calle" class="form-label">Calle</label>
+                        </td>
+                        <td>
+                            <input type="text" id="calle" name="calle" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="colonia" class="form-label">Colonia</label>
+                        </td>
+                        <td>
+                            <input type="text" id="colonia" name="colonia" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="telefono" class="form-label">Telefono</label>
+                        </td>
+                        <td>
+                            <input type="text" id="telefono" name="telefono" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Crear cuenta" class="boton">
+                        </td>
+                    </tr>
+                </table>
+            
+        </form></center>
     </div>
     <?php
         include_once "../../templates/footer_view.php";
-
 
     ?>
 </body>

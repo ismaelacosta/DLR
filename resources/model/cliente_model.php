@@ -183,8 +183,28 @@
             }
 
 
+            public function get_ticket($codigo_transaccion){
+                $lista_productos = array();
+                
+                try {
+                    $sql = "SELECT producto.nombre_producto,ventas.cantidad_venta,producto.precio,(producto.precio*ventas.cantidad_venta) as 'Total', ventas.fecha_venta FROM ventas,producto WHERE codigo_transaccion= :codigo AND producto.id_producto=ventas.id_producto";
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->bindValue(":codigo",$codigo_transaccion);
+                    $preparacion->execute();
+        
+                    while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                        $lista_productos[]=$filas;
+                    }
+        
+                    return $lista_productos;
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+                }
+            }
             
     }
-        
+
+
 
 ?>
