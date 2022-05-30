@@ -20,7 +20,7 @@ class Login_model {
             $preparacion->execute();
 
             while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
-                $lista_productos[]=$filas;
+                $informacion_cuenta[]=$filas;
             }
 
             return $informacion_cuenta;
