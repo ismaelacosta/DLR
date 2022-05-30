@@ -55,7 +55,7 @@
 </div>
             <div class="col-xs-12 col-sm-3"><a href="../cliente/compras_realizadas_view.php"> <img src="https://i.pinimg.com/originals/83/d2/1d/83d21d70a88d2c42aec5ec9cce33534b.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
 </div>
-            <div class="col-xs-12 col-sm-3"><a href="../cliente/informacion_cuenta_view.php"> <img src="https://th.bing.com/th/id/OIP.JcyOCcIiAE0TppIu7PkTZgHaHa?pid=ImgDet&rs=1" weidht="300" height="300"> </a> <BR> <font size=5>Información de la cuenta</font> 
+            <div class="col-xs-12 col-sm-3"><a href="../../controller/informacion_cuenta_controller.php?mode=view"> <img src="https://th.bing.com/th/id/OIP.JcyOCcIiAE0TppIu7PkTZgHaHa?pid=ImgDet&rs=1" weidht="300" height="300"> </a> <BR> <font size=5>Información de la cuenta</font> 
 </div>
             <div class="col-xs-12 col-sm-3"><a href="../cliente/carrito_view.php"> <img src="https://th.bing.com/th/id/OIP.PX5xd2SXv_0Vd-ivxfw4GQHaHa?pid=ImgDet&rs=1" weidht="300" height="300"></a> <BR> <font size=5>Carrito</font> 
 </div>

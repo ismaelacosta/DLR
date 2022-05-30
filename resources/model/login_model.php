@@ -1,6 +1,9 @@
 <?php
+// Turn off error reporting
+//error_reporting(0);
+include_once "../config/db_conection.php";
+include_once "../../config/db_conection.php";
 
-require_once "../../config/db_conection.php";
 
 class Login_model {
 

@@ -126,6 +126,12 @@
     </table>
 </div>
 
+<div class="container centrar_contenido">
+<a href="../../procesamiento/cliente/procesamiento_agregar_carrito.php?id=<?php echo $id_producto;?>" class="btn btn-primary">
+                                    Agregar al carrito.
+                                </a>
+</div>
+
 
 <?php
     include_once "../../templates/footer_administrador.php";
