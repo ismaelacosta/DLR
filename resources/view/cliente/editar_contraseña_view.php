@@ -14,24 +14,25 @@
     <div class="container centrar_contenido">
         <h1>Cambiar contraseña de la cuenta</h1>
         <br>
+        <?php include_once "../config/notification/cliente/avisos.php" ?>
     </div>
 
-
+    <form action="../procesamiento/cliente/procesamiento_cambiar_contrasena.php" method="post">
     <div class="container">
         
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Contraseña actual</label>
-            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="password_actual" placeholder="">
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nueva contraseña</label>
-            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="password_nueva" placeholder="">
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Confirmar contraseña</label>
-            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="password_verificacion" placeholder="">
         </div>
 
     </div>
@@ -39,8 +40,9 @@
     <div class="container centrar_contenido">
         <div class="row g-3">
             <div class="col-6">
-                <a href="" class="btn btn-outline-primary">Guardar Cambios</a>
+            <input type="submit" class="btn btn-outline-primary" value="Guardar Cambios">
             </div>
+            </form>
 
             <div class="col-6">
                 <a href="informacion_cuenta_controller.php?mode=view" class="btn btn-outline-danger">Cancelar</a>

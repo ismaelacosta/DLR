@@ -33,6 +33,187 @@ class Login_model {
         }
     }
 
+    public function set_username($username_nuevo,$username_actual){
+        try {
+            $sql = "UPDATE usuario SET username= :usuario_nuevo WHERE username= :usuario_actual";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":usuario_nuevo",$username_nuevo);
+            $preparacion->bindValue(":usuario_actual",$username_actual);
+
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function set_email($email,$username){
+        try {
+            $sql = "UPDATE usuario SET email= :correo WHERE username= :usuario";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":correo",$email);
+            $preparacion->bindValue(":usuario",$username);
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function set_calle($calle,$username){
+        try {
+            $sql = "UPDATE usuario SET calle= :calle WHERE username= :usuario";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":calle",$calle);
+            $preparacion->bindValue(":usuario",$username);
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function set_codigo_postal($codigo_postal,$username){
+        try {
+            $sql = "UPDATE usuario SET codigo_postal= :codigo_postal WHERE username= :usuario";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":codigo_postal",$codigo_postal);
+            $preparacion->bindValue(":usuario",$username);
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function set_colonia($colonia,$username){
+        try {
+            $sql = "UPDATE usuario SET colonia= :colonia WHERE username= :usuario";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":colonia",$colonia);
+            $preparacion->bindValue(":usuario",$username);
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function set_telefono($telefono,$username){
+        try {
+            $sql = "UPDATE usuario SET telefono= :telefono WHERE username= :usuario";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":telefono",$telefono);
+            $preparacion->bindValue(":usuario",$username);
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function encrypt_password($password) {
+        $password_cifrada = password_hash($password,PASSWORD_DEFAULT,array("cost"=>12));
+        return $password_cifrada;
+    }
+
+    public function set_password($password_nueva, $username){
+        try {
+
+            $password_cifrada = $this->encrypt_password($password_nueva);
+
+            $sql = "UPDATE usuario SET contrasena= :password WHERE username= :username";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":password",$password_cifrada);
+            $preparacion->bindValue(":username",$username);
+        
+
+
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return false;
+        } 
+    }
+
+    public function verify_password($password_actual, $username){
+        try {
+            $sql = "SELECT contrasena FROM usuario WHERE username= :usuario limit 1";
+            $resultado = $this->db->prepare($sql);
+
+           $resultado->bindValue(":usuario",$username);
+
+            $resultado->execute();
+
+            foreach ($resultado as $dato) {
+                if(password_verify($password_actual,$dato["contrasena"])){
+                    return true;
+                }
+            }
+
+            return false;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        }
+    }
+
+    public function username_available($username){
+        try {
+            $sql = "SELECT id_usuario FROM usuario WHERE username= :usuario limit 1";
+            $resultado = $this->db->prepare($sql);
+
+           $resultado->bindValue(":usuario",$usuario);
+
+            $resultado->execute();
+
+            foreach ($resultado as $dato) {
+                if($dato["id_usuario"] != null){
+                    return false;
+                }
+            }
+
+            return true;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+        }
+    }
+
     
 
 

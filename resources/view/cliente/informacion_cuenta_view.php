@@ -14,6 +14,8 @@
     <div class="container centrar_contenido">
         <h1>Información de la cuenta</h1>
         <br>
+
+        <?php include_once "../config/notification/cliente/avisos.php" ?>
     </div>
     
 
