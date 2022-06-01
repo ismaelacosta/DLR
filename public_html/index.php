@@ -16,6 +16,12 @@
   border-bottom-left-radius: 0;
 }
 
+body{
+    background-image: url("https://allegra.flowersetcfresno.com/pic/835277_full-fondo-de-pantalla-hd-colores-pasteles-free-download-wallpapers-colores-pastel-imagui-1200x800-for-your.jpg");
+
+}
+
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
@@ -23,7 +29,62 @@
   
 }
 
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      footer{
+        background-color:rgb(255,147,255);
+      }
+
     </style>
+
     
 </head>
 
@@ -96,7 +157,7 @@
                                 <label for="password" class="form-label"><font size="5"> <b>Contraseña</b></font></label>
                             </td>
                             <td>
-                                <font size=4><input type="password" id="password" name="password"></font>
+                                <font size=4><input type="password" id="password" name="password" placeholder="Contraseña"></font>
                             </td>
                             <td>
                                 <font size=4><input type="submit" value="Login"></font> 
@@ -126,15 +187,17 @@
   
 <div class="container-fluid">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-muted"><b><font color="black"> &copy; 2022 DLR </font></b></p>
+    <p class="col-md-4 mb-0 text-muted"><b><font color="white"> &copy; 2022 DLR </font></b></p>
+
 
 
     <ul class="nav col-md-4 justify-content-end">
       
-      <li class="nav-item"><a href="http://localhost/DLR/resources/view/Encabezado/Acerca_De_Nosotros.php" class="nav-link px-2 text-muted"><b><font color="black" size="4">Acerca de nosotros</font></b></a></li>
+      <li class="nav-item"><a href="http://localhost/DLR/resources/view/Encabezado/Acerca_De_Nosotros.php" class="nav-link px-2 text-muted"><b><font color="white">Acerca de nosotros</font></b></a></li>
 
     </ul>
     
   </footer>
+</div>
 
 </html>

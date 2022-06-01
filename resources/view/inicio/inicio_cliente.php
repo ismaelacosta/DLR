@@ -45,13 +45,18 @@
 
         include_once TEMPLATES_PATH . "header_view.php";
 
-
-        echo "<font size=5>"."Bienvenido: " . $_SESSION["username"]."</font>"."<br><br>";
     ?>
+
+<div class="container centrar_contenido">
+<h1>Menu inicio</h1>
+</div>
+
+
+<?php echo "<font size=6>"."Bienvenido: " . $_SESSION["username"]. "</font><br><br>"; ?>
 
     <div class="container centrar_contenido">
         <div class="row">
-            <div class="col-xs-12 col-sm-3"><a href="../cliente/catalogo_view.php"> <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png" weidht="300" height="300"> </a> <BR> <font size=5>Catalogo</font> 
+            <div class="col-xs-12 col-sm-3"><a href="../cliente/catalogo_view.php"> <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png" weidht="200" height="300"> </a> <BR> <font size=5>Catalogo</font> 
 </div>
             <div class="col-xs-12 col-sm-3"><a href="../cliente/compras_realizadas_view.php"> <img src="https://i.pinimg.com/originals/83/d2/1d/83d21d70a88d2c42aec5ec9cce33534b.png" weidht="300" height="300"> </a> <BR> <font size=5>Compras realizadas</font> 
 </div>

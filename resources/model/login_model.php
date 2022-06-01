@@ -1,6 +1,7 @@
 <?php
-// Turn off error reporting
-//error_reporting(0);
+// Turn off error reporting 
+//comentalo para pruebas en el host de internet
+error_reporting(0);
 include_once "../config/db_conection.php";
 include_once "../../config/db_conection.php";
 

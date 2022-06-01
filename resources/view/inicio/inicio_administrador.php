@@ -17,6 +17,8 @@
 </style>
 
 <body>
+    
+
     <?php
         //Seguridad acceso al sitio
 
@@ -31,21 +33,27 @@
 
         include_once "../../templates/header_administrador.php";
 
-
-        echo "<font size=6>"."Bienvenido: " . $_SESSION["username"]. "</font><br><br>";
     ?>
-    <center>
-        <table>
-            <tr>
-                <td>
-                    <a href="../producto/agregar_producto_view.php"> <img src="https://th.bing.com/th/id/OIP.6ZAO7T4vIUI8LJ1bCAZ9WAHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Registrar nuevo producto</font> 
-                </td>
-                <td>
-                    <a href="../producto/listar_productos_view.php"><img src="https://th.bing.com/th/id/OIP.OxXhWlD77aQFElCFAqQx3gHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Productos a la venta</font>
-                </td>
-            </tr>
-        </table>
-    </center>
+<div class="container centrar_contenido">
+<h1>Menu inicio</h1>
+</div>
+
+
+<?php echo "<font size=6>"."Bienvenido: " . $_SESSION["username"]. "</font><br><br>"; ?>
+
+<div class="container centrar_contenido">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3"><a href="../producto/agregar_producto_view.php"> <img src="https://th.bing.com/th/id/OIP.6ZAO7T4vIUI8LJ1bCAZ9WAHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Registrar nuevo producto</font>
+            </div>
+            <div class="col-xs-12 col-sm-3"> <a href="../producto/listar_productos_view.php"><img src="https://th.bing.com/th/id/OIP.OxXhWlD77aQFElCFAqQx3gHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Productos a la venta</font>
+            </div>
+            <div class="col-xs-12 col-sm-3"><a href="../login/agregar_usuario_admin_view.php"> <img src="../../../public_html/img/icons/add_user.jpg" weidht="200" height="200"> </a> <BR> <font size=5>Nuevos usuarios</font> 
+            </div>
+            <div class="col-xs-12 col-sm-3"><a href=""> <img src="../../../public_html/img/icons/sales.png" weidht="200" height="200"></a> <BR> <font size=5>Ventas</font> 
+            </div>
+        </div>
+</div>
+
     
 
     

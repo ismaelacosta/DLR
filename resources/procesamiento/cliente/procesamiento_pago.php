@@ -31,10 +31,7 @@
         if ($respuesta == "ok") {
          header("location: ../../view/cliente/agradecimiento_compra_view.php?status=ok&action=carrito_comprado");
             die(); 
-        }/* else if($respuesta == "carrito_duplicado"){
-            header("location: ../../view/cliente/catalogo_view.php?status=error&action=producto_carrito_duplicado");
-            die(); 
-        } */else{
+        }else{
             header("location: ../../view/cliente/agradecimiento_compra_view.php?status=error&action=carrito_comprado");
              die();
         

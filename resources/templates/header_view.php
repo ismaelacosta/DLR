@@ -59,7 +59,7 @@
 <header>
   <div class="container-fluid">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <a href="http://localhost/DLR/resources/view/inicio/inicio_cliente.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4"> <img src="https://th.bing.com/th/id/R.6d1a09a3d1e96fa89f8b7ce0f3361c63?rik=sYIIlpd0g6QAnA&pid=ImgRaw&r=0" height="50" weight="50"><b>DLR</b><img src="https://th.bing.com/th/id/R.6d1a09a3d1e96fa89f8b7ce0f3361c63?rik=sYIIlpd0g6QAnA&pid=ImgRaw&r=0" height="50" weight="50"> </span>
       </a>

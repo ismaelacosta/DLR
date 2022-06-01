@@ -129,7 +129,7 @@
             <td><?php echo '<img width="50" src="'.$fila["url_imagen"].'">' ?></td>
             <td>
                 <a href="../../procesamiento/producto/procesamiento_eliminar_productos.php?id=<?php echo $fila["id_producto"];?>">
-                    <img width="40" src="../../../public_html/img/icons/delete_icon.webp" alt="">
+                    <img width="40" src="../../../public_html/img/icons/delete_icon.png" alt="">
                 </a>
         </td>
                 <td>

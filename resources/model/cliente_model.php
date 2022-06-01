@@ -62,20 +62,33 @@
             
                 try {
 
-                    $cadena_values = "";
+
+                    $sql_venta = "INSERT INTO venta(id_usuario,fecha_venta,codigo_transaccion)values (?,CURDATE(),?)";
+                    $ejecucion = $this->db->prepare($sql_venta);
+                    $ejecucion->execute([$id_usuario,$codigo_transaccion]);
+
+                    $sql_get_id_venta = "SELECT id_venta FROM venta WHERE codigo_transaccion = :codigo";
+                    $get_id_venta = $this->db->prepare($sql_get_id_venta);
+                    $get_id_venta->bindValue(":codigo",$codigo_transaccion);
+                    $get_id_venta->execute();
+
+                    foreach ($get_id_venta as $dato) {
+                        $id_venta = $dato["id_venta"];
+                        break;
+                    }
+
+                    echo $id_venta;
+
                     $contador = 0;
                     $limite = count($lista_unidades);
                     foreach ($lista_productos as $key) {
-                        if (($contador + 1) == $limite ) {
-                            $cadena_values= $cadena_values . "(".$id_usuario . ",".$key["id_producto"]."," . $lista_unidades[$contador] .',NOW(),"pendiente","' . $codigo_transaccion . '")';
-                        }else{
-                            $cadena_values= $cadena_values . "(".$id_usuario . ",".$key["id_producto"]."," . $lista_unidades[$contador] .',NOW(),"pendiente","' . $codigo_transaccion . '"),';
-                        }
+                        $sql_informacion = 'INSERT INTO informacion_venta(id_venta,id_producto,status,cantidad_venta,nombre,url_imagen,precio)values(?,?,"pendiente",?,?,?,?)';
+                        $preparacion = $this->db->prepare($sql_informacion);
+                        $preparacion->execute([$id_venta,$key["id_producto"],$lista_unidades[$contador],$key["nombre_producto"],$key["url_imagen"],$key["precio"]]);
                         $contador++;
-                    }
-                    $sql = "INSERT INTO ventas(id_usuario,id_producto,cantidad_venta,fecha_venta,status,codigo_transaccion)values " . $cadena_values;
-                    $preparacion = $this->db->prepare($sql);
-                    $preparacion->execute();
+                    } 
+                    
+                    
 
                     $this->remove_items_from_products($lista_unidades,$lista_productos);
                     $this->remove_carrito($username);
@@ -187,7 +200,7 @@
                 $lista_productos = array();
                 
                 try {
-                    $sql = "SELECT producto.nombre_producto,ventas.cantidad_venta,producto.precio,(producto.precio*ventas.cantidad_venta) as 'Total', ventas.fecha_venta FROM ventas,producto WHERE codigo_transaccion= :codigo AND producto.id_producto=ventas.id_producto";
+                    $sql = "SELECT informacion_venta.nombre as 'nombre_producto',informacion_venta.cantidad_venta,informacion_venta.precio,(informacion_venta.precio*informacion_venta.cantidad_venta) as 'Total', venta.fecha_venta FROM venta,informacion_venta WHERE venta.codigo_transaccion= :codigo AND informacion_venta.id_venta=venta.id_venta";
                     $preparacion = $this->db->prepare($sql);
                     $preparacion->bindValue(":codigo",$codigo_transaccion);
                     $preparacion->execute();
@@ -208,7 +221,7 @@
                 $lista_productos = array();
                 $id_usuario = $this->login_model->get_id_username_by_username($username);
                 try {
-                    $sql = "SELECT producto.nombre_producto,producto.url_imagen,ventas.cantidad_venta,producto.precio,(producto.precio*ventas.cantidad_venta) as 'total', ventas.fecha_venta FROM ventas,producto WHERE producto.id_producto=ventas.id_producto AND ventas.id_usuario= :usuario";
+                    $sql = "SELECT informacion_venta.nombre as 'nombre_producto',informacion_venta.url_imagen,informacion_venta.cantidad_venta,informacion_venta.precio,(informacion_venta.precio*informacion_venta.cantidad_venta) as 'total', venta.fecha_venta FROM venta,informacion_venta WHERE informacion_venta.id_venta=venta.id_venta AND venta.id_usuario= :usuario";
                     $preparacion = $this->db->prepare($sql);
                     $preparacion->bindValue(":usuario",$id_usuario);
                     $preparacion->execute();
@@ -229,7 +242,7 @@
                 $lista_productos = array();
                 
                 try {
-                    $sql = "SELECT SUM(ventas.cantidad_venta*producto.precio) AS 'Total' FROM ventas,producto WHERE codigo_transaccion= :codigo AND ventas.id_producto=producto.id_producto";
+                    $sql = "SELECT SUM(informacion_venta.cantidad_venta*informacion_venta.precio) AS 'Total' FROM venta,informacion_venta WHERE venta.codigo_transaccion= :codigo AND venta.id_venta=informacion_venta.id_venta";
                     $preparacion = $this->db->prepare($sql);
                     $preparacion->bindValue(":codigo",$codigo_transaccion);
                     $preparacion->execute();
