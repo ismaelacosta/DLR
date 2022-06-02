@@ -2,7 +2,7 @@
     require_once "producto_model.php";
     require_once "login_model.php";
 
-    class Cliente_model{
+    class Administrador_model{
         private $db;
         private $producto_model;
         private $login_model;
@@ -11,6 +11,100 @@
             $this->db = Conectar::conexion();
             $this->producto_model = new Producto_model();
             $this->login_model = new Login_model();
+        }
+
+        public function complete_delivery($codigo_transaccion){
+            try {
+                $sql = "UPDATE venta SET status= 'completado' WHERE codigo_transaccion= :codigo";
+                $preparacion = $this->db->prepare($sql);
+    
+                $preparacion->bindValue(":codigo",$codigo_transaccion);
+    
+                $preparacion->execute();
+    
+                echo "Datos Actualizados correctamente";
+    
+                return true;
+            } catch (Exception $e) {
+                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                return false;
+            } 
+        }
+
+        public function get_all_sales(){
+            $lista_ventas = array();
+            try {
+                $sql = "SELECT venta.id_venta, venta.id_usuario, venta.fecha_venta, venta.codigo_transaccion,venta.status, SUM(informacion_venta.precio*informacion_venta.cantidad_venta) as 'total' FROM venta, informacion_venta WHERE venta.id_venta = informacion_venta.id_venta GROUP BY venta.codigo_transaccion";
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->execute();
+        
+                    while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                        $lista_ventas[]=$filas;
+                    }
+        
+                    return $lista_ventas;
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+            }
+        }
+
+        public function get_products_from_sale($codigo_transaccion){
+            $lista_productos = array();
+                try {
+                    $sql = "SELECT informacion_venta.nombre as 'nombre_producto',informacion_venta.url_imagen,informacion_venta.cantidad_venta,informacion_venta.precio,(informacion_venta.precio*informacion_venta.cantidad_venta) as 'total' FROM venta,informacion_venta WHERE informacion_venta.id_venta=venta.id_venta AND venta.codigo_transaccion = :codigo";
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->bindValue(":codigo",$codigo_transaccion);
+                    $preparacion->execute();
+        
+                    while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                        $lista_productos[]=$filas;
+                    }
+        
+                    return $lista_productos;
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+                }
+            
+        }
+
+        public function get_sale_by_transaction_code($codigo_transaccion){
+            $lista_ventas = array();
+            try {
+                $sql = "SELECT venta.id_venta, venta.id_usuario, venta.fecha_venta, venta.codigo_transaccion,venta.status, SUM(informacion_venta.precio*informacion_venta.cantidad_venta) as 'total' FROM venta, informacion_venta WHERE venta.id_venta = informacion_venta.id_venta AND venta.codigo_transaccion = :codigo";
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->bindValue(":codigo",$codigo_transaccion);
+                    $preparacion->execute();
+        
+                    while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                        $lista_ventas[]=$filas;
+                    }
+        
+                    return $lista_ventas;
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+            }
+        }
+
+        public function get_sales_information($codigo_transaccion){
+            $lista_productos = array();
+            try {
+                $sql = "SELECT informacion_venta.id_informacion_venta, informacion_venta.id_venta, informacion_venta.id_producto, informacion_venta.status, informacion_venta.cantidad_venta, informacion_venta.nombre as 'nombre_producto', informacion_venta.url_imagen, informacion_venta.precio FROM venta,informacion_venta WHERE venta.id_venta = informacion_venta.id_venta AND venta.codigo_transaccion = :codigo";
+                    $preparacion = $this->db->prepare($sql);
+                    $preparacion->bindValue(":codigo",$codigo_transaccion);
+                    $preparacion->execute();
+        
+                    while($filas=$preparacion->fetch(PDO::FETCH_ASSOC)){
+                        $lista_productos[]=$filas;
+                    }
+        
+                    return $lista_productos;
+                } catch (Exception $e) {
+                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+                    return "error";
+            }
         }
 
         public function get_all_carrito($username){
@@ -63,7 +157,7 @@
                 try {
 
 
-                    $sql_venta = "INSERT INTO venta(id_usuario,fecha_venta,codigo_transaccion,status)values (?,CURDATE(),?,'pendiente')";
+                    $sql_venta = "INSERT INTO venta(id_usuario,fecha_venta,codigo_transaccion)values (?,CURDATE(),?)";
                     $ejecucion = $this->db->prepare($sql_venta);
                     $ejecucion->execute([$id_usuario,$codigo_transaccion]);
 
@@ -82,7 +176,7 @@
                     $contador = 0;
                     $limite = count($lista_unidades);
                     foreach ($lista_productos as $key) {
-                        $sql_informacion = 'INSERT INTO informacion_venta(id_venta,id_producto,cantidad_venta,nombre,url_imagen,precio)values(?,?,?,?,?,?)';
+                        $sql_informacion = 'INSERT INTO informacion_venta(id_venta,id_producto,status,cantidad_venta,nombre,url_imagen,precio)values(?,?,"pendiente",?,?,?,?)';
                         $preparacion = $this->db->prepare($sql_informacion);
                         $preparacion->execute([$id_venta,$key["id_producto"],$lista_unidades[$contador],$key["nombre_producto"],$key["url_imagen"],$key["precio"]]);
                         $contador++;

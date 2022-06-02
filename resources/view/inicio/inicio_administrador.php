@@ -49,7 +49,7 @@
             </div>
             <div class="col-xs-12 col-sm-3"><a href="../login/agregar_usuario_admin_view.php"> <img src="../../../public_html/img/icons/add_user.jpg" weidht="200" height="200"> </a> <BR> <font size=5>Nuevos usuarios</font> 
             </div>
-            <div class="col-xs-12 col-sm-3"><a href=""> <img src="../../../public_html/img/icons/sales.png" weidht="200" height="200"></a> <BR> <font size=5>Ventas</font> 
+            <div class="col-xs-12 col-sm-3"><a href="../admin/ventas_view.php"> <img src="../../../public_html/img/icons/sales.png" weidht="200" height="200"></a> <BR> <font size=5>Ventas</font> 
             </div>
         </div>
 </div>
