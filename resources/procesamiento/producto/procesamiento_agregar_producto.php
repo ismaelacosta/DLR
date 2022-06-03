@@ -32,8 +32,8 @@
 
 
     $respuesta = $producto_model->add_producto($nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$ruta_bd.$nombre_imagen,$descripcion);
-    move_uploaded_file($_FILES['url_imagen']['tmp_name'], $carpeta_destino.$nombre_imagen)
-   /*  if ($respuesta == "ok") {
+    move_uploaded_file($_FILES['url_imagen']['tmp_name'], $carpeta_destino.$nombre_imagen);
+     if ($respuesta == "ok") {
         header("location: ../../view/producto/agregar_producto_view.php?status=ok&action=producto_creado");
         die();
     }elseif($respuesta == "error"){
@@ -42,7 +42,7 @@
     
     }else{
 
-    }  */
+    }  
 
 
 ?>
