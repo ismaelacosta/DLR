@@ -130,6 +130,35 @@ class Producto_model {
         } 
     }
 
+    
+    public function set_producto_by_id_no_image($id_producto,$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$descripcion){
+        try {
+
+            echo $id_producto;
+
+            $sql = "UPDATE producto SET nombre_producto= :nombre_producto, contenido_piezas= :contenido_piezas,marca= :marca,precio= :precio,existencias= :existencias,descripcion= :descripcion WHERE id_producto= :id_producto";
+            $preparacion = $this->db->prepare($sql);
+
+            $preparacion->bindValue(":nombre_producto",$nombre_producto);
+            $preparacion->bindValue(":contenido_piezas",$contenido_piezas);
+            $preparacion->bindValue(":marca",$marca);
+            $preparacion->bindValue(":precio",$precio);
+            $preparacion->bindValue(":existencias",$existencias);
+            $preparacion->bindValue(":descripcion",$descripcion);
+            $preparacion->bindValue(":id_producto",$id_producto);
+
+
+            $preparacion->execute();
+
+            echo "Datos Actualizados correctamente";
+
+            return "ok";
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            return "error";
+        } 
+    }
+
     public function delete_product($id_producto){
         $eliminado = false;
         try {

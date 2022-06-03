@@ -49,7 +49,7 @@
     ?>
 
     <div class="container centrar_contenido">
-        <form method="POST" action="../../procesamiento/producto/procesamiento_editar_productos.php?id_producto=<?php echo $producto["id_producto"];?>">
+        <form method="POST" action="../../procesamiento/producto/procesamiento_editar_productos.php?id_producto=<?php echo $producto["id_producto"];?>" enctype="multipart/form-data">
             <div class="mb-3">
             
             <label for="nombre_producto" class="form-label">Nombre Producto</label>
@@ -72,7 +72,9 @@
             <input type="text" value="<?php echo $producto["existencias"];?>" id="existencias" name="existencias" required>
 
             <label for="url_imagen" class="form-label">URL de la imagen del producto</label>
-            <input type="text" value="<?php echo $producto["url_imagen"];?>" id="url_imagen" name="url_imagen" required>
+            <input type="file" value="<?php echo $producto["url_imagen"];?>" id="url_imagen" name="url_imagen">
+            <input type="hidden" value="<?php echo $producto["url_imagen"];?>" id="ruta_imagen" name="ruta_imagen">
+
 
             <input type="submit" value="Editar producto">
         
