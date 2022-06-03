@@ -76,13 +76,12 @@
     ?>
 
     <div class="container centrar_contenido">
-        
-     
+      
         
     </div>
     <div class="centrar_contenido">
         <center>
-        <form method="POST" action="../../procesamiento/producto/procesamiento_agregar_producto.php">
+        <form method="POST" action="../../procesamiento/producto/procesamiento_agregar_producto.php" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>
@@ -137,7 +136,7 @@
                         <label for="url_imagen" class="form-label">URL de la imagen del producto</label>
                     </td>
                     <td>
-                        <input type="text" id="url_imagen" name="url_imagen" required>
+                        <input type="file" id="url_imagen" name="url_imagen" required>
                     </td>
                 </tr>
                 <tr>
