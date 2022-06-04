@@ -8,6 +8,23 @@
     <link rel="shortcut icon" href="../../../public_html/img/icons/dlr.png">
     <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../public_html/css/styles.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Overpass&display=swap');
+        td{
+            font-family: 'Francois One', sans-serif;
+        }
+        table{
+            font-size:30px;
+        }
+        input.boton{
+            background:pink;
+            width:"100";
+        }
+        header{
+            background-color:rgb(200,191,231);
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -52,33 +69,76 @@
         <form method="POST" action="../../procesamiento/producto/procesamiento_editar_productos.php?id_producto=<?php echo $producto["id_producto"];?>" enctype="multipart/form-data">
             <div class="mb-3">
             
-            <label for="nombre_producto" class="form-label">Nombre Producto</label>
-            <input type="text" value="<?php echo $producto["nombre_producto"];?>" class="" id="nombre_producto" name="nombre_producto" required>
-
-            <label for="descripcion" class="form-label">Descripción</label>
-            <input type="text" value="<?php echo $producto["descripcion"];?>" class="" id="descripcion" name="descripcion" required>
-            </div>
-            <div class="mb-3">
-            <label for="contenido_piezas" class="form-label">Contenido piezas</label>
-            <input type="text" value="<?php echo $producto["contenido_piezas"];?>"  id="contenido_piezas" name="contenido_piezas" required>
-
-            <label for="marca" class="form-label">Marca</label>
-            <input type="text" value="<?php echo $producto["marca"];?>" id="marca" name="marca" required>
-
-            <label for="precio" class="form-label">Precio</label>
-            <input type="text" value="<?php echo $producto["precio"];?>" id="precio" name="precio" required>
-
-            <label for="existencias" class="form-label">Existencias</label>
-            <input type="text" value="<?php echo $producto["existencias"];?>" id="existencias" name="existencias" required>
-
-            <label for="url_imagen" class="form-label">URL de la imagen del producto</label>
-            <input type="file" value="<?php echo $producto["url_imagen"];?>" id="url_imagen" name="url_imagen">
-            <input type="hidden" value="<?php echo $producto["url_imagen"];?>" id="ruta_imagen" name="ruta_imagen">
-
-
-            <input type="submit" value="Editar producto">
-        
-        </div>
+            <center>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="nombre_producto" class="form-label">Nombre Producto</label>
+                        </td>
+                        <td>
+                            <input type="text" value="<?php echo $producto["nombre_producto"];?>" class="" id="nombre_producto" name="nombre_producto" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="descripcion" class="form-label">Descripción</label>
+                        </td>
+                        <td>
+                            <input type="text" value="<?php echo $producto["descripcion"];?>" class="" id="descripcion" name="descripcion" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="contenido_piezas" class="form-label">Contenido piezas</label>
+                        </td>
+                        <td>
+                            <input type="text" value="<?php echo $producto["contenido_piezas"];?>"  id="contenido_piezas" name="contenido_piezas" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="marca" class="form-label">Marca</label>
+                        </td>
+                        <td>
+                            <input type="text" value="<?php echo $producto["marca"];?>" id="marca" name="marca" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="precio" class="form-label">Precio</label>
+                        </td>
+                        <td>
+                            <input type="text" value="<?php echo $producto["precio"];?>" id="precio" name="precio" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="existencias" class="form-label">Existencias</label>
+                        </td>
+                        <td>
+                            <input type="text" value="<?php echo $producto["existencias"];?>" id="existencias" name="existencias" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="url_imagen" class="form-label">URL de la imagen del producto</label>
+                        </td>
+                        <td>
+                            <input type="file" value="<?php echo $producto["url_imagen"];?>" id="url_imagen" name="url_imagen">
+                        </td>
+                        <td>
+                            <input type="hidden" value="<?php echo $producto["url_imagen"];?>" id="ruta_imagen" name="ruta_imagen">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Editar producto" class="boton">
+                        </td>
+                    </tr>
+                    
+                </table>
+            </center>
+            
         </form>
     </div>
     <?php
