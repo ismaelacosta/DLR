@@ -118,7 +118,7 @@
                             <label for="username" class="form-label">Nombre de usuario</label>
                         </td>
                         <td>
-                            <input type="text" class="" id="username" name="username" placeholder="Pablito123" required>
+                            <input type="text" class="" id="username" name="username" placeholder="Genio117" required>
                         </td>
                     </tr>
                     <tr>

@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../../../public_html/img/icons/dlr.png">
     <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../public_html/css/styles.css">
+    <script src="../../../public_html/js/script.js"></script>
 </head>
 <body>
 <?php
@@ -120,6 +121,14 @@
         <?php $contador++; } ?>
     </tbody>
     </table>
+</div>
+<div>
+    <center>
+        <form action="../cliente/PDF.php" method="POST" id="ReportePDF">
+            <a onclick="GenerarPDFVentas()"> <img src="https://www.freeiconspng.com/thumbs/pdf-icon-png/pdf-icon-7.png" height="200" weidht="200"> <br> <font size=5>Generar Reporte</font></a>  
+        </form>
+    </center>
+    
 </div>
 
 
