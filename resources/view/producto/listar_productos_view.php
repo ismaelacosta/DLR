@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Productos</title>
-    <link rel="shortcut icon" href="../../../public_html/img/icons/dlr.png">
-    <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../public_html/css/styles.css">
+    <link rel="shortcut icon" href="../../../img/icons/dlr.png">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 <body>
 <?php
-        //Seguridad acceso al sitio
-
-        session_start();
 
         if(!isset($_SESSION["username"])){
             //Redirigir al login
@@ -129,12 +127,12 @@
             <td><?php echo '<img width="50" src="'.$fila["url_imagen"].'">' ?></td>
             <td>
                 <a href="../../procesamiento/producto/procesamiento_eliminar_productos.php?id=<?php echo $fila["id_producto"];?>">
-                    <img width="40" src="../../../public_html/img/icons/delete_icon.png" alt="">
+                    <img width="40" src="../../../img/icons/delete_icon.png" alt="">
                 </a>
         </td>
                 <td>
                 <a href="editar_productos_view.php?id=<?php echo $fila["id_producto"];?>">
-                    <img width="40" src="../../../public_html/img/icons/edit_icon.png" alt="">
+                    <img width="40" src="../../../img/icons/edit_icon.png" alt="">
                 </a>
                 
             </td>
@@ -162,6 +160,6 @@
 
 ?>
 
-    <script src="../../../public_html/js/script.js"></script>
+    <script src="../../../js/script.js"></script>
 </body>
 </html>

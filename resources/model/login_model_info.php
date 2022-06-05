@@ -1,5 +1,5 @@
 <?php
-include_once "../../config/db_conection.php";
+include_once "../config/db_conection.php";
 
 
 class Login_model {
@@ -205,6 +205,7 @@ class Login_model {
             $resultado = $this->db->prepare($sql);
 
            $resultado->bindValue(":usuario",$usuario);
+           //$resultado->bindValue(":contrasena",$contrasena);
 
             $resultado->execute();
 
@@ -215,7 +216,7 @@ class Login_model {
                 }
             }
         } catch (Exception $e) {
-            echo "error";
+            return false;
         }
         return $login;
     }

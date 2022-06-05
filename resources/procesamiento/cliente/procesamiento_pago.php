@@ -1,8 +1,7 @@
-<?php
-    // Necesito el id que recibo del producto y el nombre del usuario agregar
+<?php session_start();
     require_once "../../model/cliente_model.php";
 
-    session_start();
+    
 
     $codigo_transaccion = htmlentities(addslashes($_GET["codigo_transaccion"]));
     
@@ -24,9 +23,6 @@
 
 
     $cliente_model->add_venta($username,$lista_unidades,$lista_productos,$codigo_transaccion);
-
-
-
 
         if ($respuesta == "ok") {
          header("location: ../../view/cliente/agradecimiento_compra_view.php?status=ok&action=carrito_comprado");

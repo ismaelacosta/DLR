@@ -1,9 +1,5 @@
-<?php
-    // Necesito el id que recibo del producto y el nombre del usuario agregar
+<?php session_start();
     require_once "../../model/login_model.php";
-
-    session_start();
-
     $password_actual = htmlentities(addslashes($_POST["password_actual"]));
     $password_nueva = htmlentities(addslashes($_POST["password_nueva"]));
     $password_verificacion = htmlentities(addslashes($_POST["password_verificacion"]));

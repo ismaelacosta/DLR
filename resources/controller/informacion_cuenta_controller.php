@@ -1,14 +1,9 @@
-<?php
-    // Turn off error reporting
-    //error_reporting(0);
-
-    require_once "../model/login_model.php";
+<?php session_start();
+require_once "../model/login_model_info.php";
     
     if(isset($_GET['mode']) && $_GET["mode"] == "view"){
 
         //Seguridad acceso al sitio
-
-        session_start();
 
         if(!isset($_SESSION["username"])){
             //Redirigir al login
@@ -33,9 +28,6 @@
     if(isset($_GET['mode']) && $_GET["mode"] == "edit"){
 
         //Seguridad acceso al sitio
-
-        session_start();
-
         if(!isset($_SESSION["username"])){
             //Redirigir al login
 
@@ -59,9 +51,6 @@
     if(isset($_GET['mode']) && $_GET["mode"] == "password"){
 
         //Seguridad acceso al sitio
-
-        session_start();
-
         if(!isset($_SESSION["username"])){
             //Redirigir al login
 

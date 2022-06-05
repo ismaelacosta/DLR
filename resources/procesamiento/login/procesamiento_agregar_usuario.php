@@ -26,15 +26,14 @@
         $tipo_usuario = htmlentities(addslashes($_POST["tipo_usuario"]));
         switch($tipo_usuario){
             case "administrador":
-                $tipo_usuario = 1;
+                $tipo_usuario_numero = 1;
                 break;
 
             case "cliente":
-                $tipo_usuario = 2;
+                $tipo_usuario_numero = 2;
                 break;
 
             default:
-                echo "Error en el tipo de usuario";
                 break;
         }
     }else{
@@ -42,17 +41,16 @@
     }
 
 
-    $respuesta = $login_model->add_user($username, $password,$email, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono);
+    $respuesta = $login_model->add_user($username, $password,$email, $tipo_usuario_numero, $codigo_postal,$calle,$colonia,$telefono);
     
     if ($respuesta == "ok") {
-    header("location: ../../../public_html/index.php?status=ok&action=add_account");
+    header("location: ../../../index.php?status=ok&action=add_account");
     die();
      }elseif($respuesta == "error-user_created"){
          header("location: ../../view/login/agregar_usuario_view.php?status=error&action=username_used");
          die();
     
     }else{
-        echo "Ocurrio un error";
      } 
 
 

@@ -1,40 +1,19 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
-    <link rel="shortcut icon" href="../../../public_html/img/icons/dlr.png">
-    <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../public_html/css/styles.css">
+    <link rel="shortcut icon" href="../../../img/icons/dlr.png">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 
 </head>
-<style>
-    table{
-    border-collapse: collapse;
-    background-color: rgb(255,255,255);
-    width: 50%;
-    padding:5px;
-    
-    }
-    th,tr,td{
-        border: 5px solid rgb(0, 0, 0);
-        padding: 5px;
-        text-align: center;
-        
-    }
-    body{
-        background-image: url("");
-    }
-</style>
 
 <body>
     <?php
-        require_once($_SERVER["DOCUMENT_ROOT"] . "/DLR/resources/config/config.php");
-        //Seguridad acceso al sitio
-
-        session_start();
+        require_once("../../config/config.php");
 
         if(!isset($_SESSION["username"])){
             //Redirigir al login
@@ -43,7 +22,7 @@
             die();
         }
 
-        include_once TEMPLATES_PATH . "header_view.php";
+        include_once "../../templates/header_view.php";
 
     ?>
 
@@ -69,9 +48,7 @@
 
         
     <?php
-        include_once TEMPLATES_PATH . "footer_view.php";
-
-
+        include_once "../../templates/footer_view.php";
     ?>
     
 </body>

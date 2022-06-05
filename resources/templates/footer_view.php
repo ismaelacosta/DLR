@@ -70,7 +70,7 @@
       
       <li class="nav-item"><a href="../inicio/inicio_cliente.php" class="nav-link px-2 text-muted"><b><font color="white">Página principal</font></b></a></li>
       <li class="nav-item"><a href="../cliente/catalogo_view.php" class="nav-link px-2 text-muted"><b><font color="white">Catálogo</font></b></a></li>
-      <li class="nav-item"><a href="http://localhost/DLR/resources/view/Encabezado/Acerca_De_Nosotros.php" class="nav-link px-2 text-muted"><b><font color="white">Acerca de nosotros</font></b></a></li>
+      <li class="nav-item"><a href="https://dulcerialr.000webhostapp.com/resources/view/Encabezado/Acerca_De_Nosotros.php" class="nav-link px-2 text-muted"><b><font color="white">Acerca de nosotros</font></b></a></li>
 
     </ul>
     

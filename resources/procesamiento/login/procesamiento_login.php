@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
     require_once "../../model/login_model.php";
 
@@ -13,7 +13,7 @@
 
     if($acceso == true){
 
-        session_start();
+        
         $_SESSION["username"] = $username;
 
         $tipo_acceso = $login_model->type_user($username);
@@ -22,16 +22,11 @@
             header("location: ../../view/inicio/inicio_administrador.php");
             die();
         }else{
-            echo "Entro al cliente";
             header("location: ../../view/inicio/inicio_cliente.php");
             die();
         }
-
-
-        
-
     }else{
-        header("location: ../../../public_html/index.php?status=error&action=login");
+        header("location: ../../../index.php?status=error&action=login");
         die();
     }
 

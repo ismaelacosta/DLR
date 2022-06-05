@@ -1,8 +1,7 @@
-<?php
-    // Necesito el id que recibo del producto y el nombre del usuario agregar
+<?php session_start();
     require_once "../../model/login_model.php";
 
-    session_start();
+    
     $username_actual = $_SESSION["username"];
     $username = htmlentities(addslashes($_POST["username"]));
     $email = htmlentities(addslashes($_POST["email"]));

@@ -18,11 +18,9 @@ class Producto_model {
                 $preparacion = $this->db->prepare($sql);
                 $preparacion->execute([$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen,$descripcion]);
     
-                echo "Datos insertados correctamente";
     
                 return "ok";
             } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                 return "error";
             } 
     }
@@ -40,7 +38,6 @@ class Producto_model {
 
             return $lista_productos;
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return "error";
         }
     }
@@ -58,7 +55,6 @@ class Producto_model {
 
             return $lista_productos;
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return "error";
         }
     }
@@ -78,7 +74,6 @@ class Producto_model {
 
             return $informacion_producto;
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return "error";
         }
     }
@@ -96,7 +91,6 @@ class Producto_model {
 
             return $cantidad;
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return "error";
         }
     }
@@ -104,7 +98,6 @@ class Producto_model {
     public function set_producto_by_id($id_producto,$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$url_imagen,$descripcion){
         try {
 
-            echo $id_producto;
 
             $sql = "UPDATE producto SET nombre_producto= :nombre_producto, contenido_piezas= :contenido_piezas,marca= :marca,precio= :precio,existencias= :existencias,url_imagen= :url_imagen,descripcion= :descripcion WHERE id_producto= :id_producto";
             $preparacion = $this->db->prepare($sql);
@@ -121,11 +114,9 @@ class Producto_model {
 
             $preparacion->execute();
 
-            echo "Datos Actualizados correctamente";
 
             return "ok";
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return "error";
         } 
     }
@@ -134,7 +125,6 @@ class Producto_model {
     public function set_producto_by_id_no_image($id_producto,$nombre_producto,$contenido_piezas,$marca,$precio,$existencias,$descripcion){
         try {
 
-            echo $id_producto;
 
             $sql = "UPDATE producto SET nombre_producto= :nombre_producto, contenido_piezas= :contenido_piezas,marca= :marca,precio= :precio,existencias= :existencias,descripcion= :descripcion WHERE id_producto= :id_producto";
             $preparacion = $this->db->prepare($sql);
@@ -150,11 +140,9 @@ class Producto_model {
 
             $preparacion->execute();
 
-            echo "Datos Actualizados correctamente";
 
             return "ok";
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return "error";
         } 
     }
@@ -173,7 +161,6 @@ class Producto_model {
 
             return $eliminado;
         } catch (Exception $e) {
-            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             return $eliminado;
         }
     }    

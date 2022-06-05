@@ -1,9 +1,6 @@
-<?php
-    // Necesito el id que recibo del producto y el nombre del usuario agregar
+<?php session_start();
     require_once "../../model/cliente_model.php";
-
-    session_start();
-
+    
     $id_producto = htmlentities(addslashes($_GET["id"]));
     $username = $_SESSION["username"];
     

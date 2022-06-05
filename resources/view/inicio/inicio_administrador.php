@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DLR - Inicio - Administrador</title>
-    <link rel="shortcut icon" href="../../../public_html/img/icons/dlr.png">
-    <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../public_html/css/styles.css">
+    <link rel="shortcut icon" href="../../../img/icons/dlr.png">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 
 <style>
@@ -20,10 +21,7 @@
     
 
     <?php
-        //Seguridad acceso al sitio
-
-        session_start();
-
+     
         if(!isset($_SESSION["username"])){
             //Redirigir al login
 
@@ -47,9 +45,9 @@
             </div>
             <div class="col-xs-12 col-sm-3"> <a href="../producto/listar_productos_view.php"><img src="https://th.bing.com/th/id/OIP.OxXhWlD77aQFElCFAqQx3gHaHa?pid=ImgDet&rs=1" height="200" weight="200"></a> <BR> <font size="5">Productos a la venta</font>
             </div>
-            <div class="col-xs-12 col-sm-3"><a href="../login/agregar_usuario_admin_view.php"> <img src="../../../public_html/img/icons/add_user.jpg" weidht="200" height="200"> </a> <BR> <font size=5>Nuevos usuarios</font> 
+            <div class="col-xs-12 col-sm-3"><a href="../login/agregar_usuario_admin_view.php"> <img src="../../../img/icons/add_user.jpg" weidht="200" height="200"> </a> <BR> <font size=5>Nuevos usuarios</font> 
             </div>
-            <div class="col-xs-12 col-sm-3"><a href="../admin/ventas_view.php"> <img src="../../../public_html/img/icons/sales.png" weidht="200" height="200"></a> <BR> <font size=5>Ventas</font> 
+            <div class="col-xs-12 col-sm-3"><a href="../admin/ventas_view.php"> <img src="../../../img/icons/sales.png" weidht="200" height="200"></a> <BR> <font size=5>Ventas</font> 
             </div>
         </div>
 </div>

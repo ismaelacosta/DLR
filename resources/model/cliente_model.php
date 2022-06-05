@@ -28,7 +28,6 @@
     
                 return $lista_productos;
             } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                 return "error";
             }
         }
@@ -52,7 +51,6 @@
     
                 
             } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
             }
             return $es_duplicado;
         }
@@ -76,9 +74,6 @@
                         $id_venta = $dato["id_venta"];
                         break;
                     }
-
-                    echo $id_venta;
-
                     $contador = 0;
                     $limite = count($lista_unidades);
                     foreach ($lista_productos as $key) {
@@ -93,11 +88,9 @@
                     $this->remove_items_from_products($lista_unidades,$lista_productos);
                     $this->remove_carrito($username);
         
-                    echo "Datos insertados correctamente";
         
                     return "ok";
                 } catch (Exception $e) {
-                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                     return "error";
                 } 
             }
@@ -116,13 +109,11 @@
     
                 $preparacion->execute();
     
-                echo "Datos Actualizados correctamente";
                 $contador++;
                 }
     
                 return "ok";
             } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                 return "error";
             } 
         } 
@@ -137,11 +128,9 @@
                 $preparacion->bindValue(":usuario",$id_usuario);
                 $preparacion->execute();
     
-                echo "Carrito eliminado correctamente";
     
                 return "ok";
             } catch (Exception $e) {
-                echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                 return "error";
             } 
         }
@@ -160,11 +149,9 @@
                     $preparacion = $this->db->prepare($sql);
                     $preparacion->execute([$id_usuario,$id_producto]);
         
-                    echo "Datos insertados correctamente";
         
                     return "ok";
                 } catch (Exception $e) {
-                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                     return "error";
                 } 
             }
@@ -174,8 +161,7 @@
             public function remove_producto_carrito_cliente($id_producto,$username){
                 $id_usuario = $this->login_model->get_id_username_by_username($username);
                     try {
-                        echo $id_usuario;
-                        echo $id_producto;
+       
             
                         $sql = "DELETE FROM carrito WHERE id_producto= :producto AND id_usuario= :usuario";
                         $preparacion = $this->db->prepare($sql);
@@ -184,11 +170,9 @@
                         $preparacion->bindValue(":usuario",$id_usuario);
                         $preparacion->execute();
             
-                        echo "Elemento eliminado correctamente";
             
                         return "ok";
                     } catch (Exception $e) {
-                        echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                         return "error";
                     } 
                 
@@ -211,7 +195,6 @@
         
                     return $lista_productos;
                 } catch (Exception $e) {
-                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                     return "error";
                 }
             }
@@ -232,7 +215,6 @@
         
                     return $lista_productos;
                 } catch (Exception $e) {
-                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                     return "error";
                 }
             }
@@ -253,7 +235,6 @@
         
                     return $lista_productos;
                 } catch (Exception $e) {
-                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
                     return "error";
                 }
             }

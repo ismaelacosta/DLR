@@ -14,7 +14,7 @@
        <font size=10 color="white"> 
             <BR><BR>
             No tienes permitido ingresar a este sitio, intenta iniciar sesion.    <BR>
-            <a href="http://localhost/DLR/public_html/index.php">Volver al Inicio de sesión</a>
+            <a href="https://dulcerialr.000webhostapp.com/index.php">Volver al Inicio de sesión</a>
         </font>
    </center> 
 </body>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,15 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi carrito</title>
-    <link rel="shortcut icon" href="../../../public_html/img/icons/dlr.png">
-    <link rel="stylesheet" href="../../../public_html/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../public_html/css/styles.css">
+    <link rel="shortcut icon" href="../../../img/icons/dlr.png">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
 </head>
 <body>
 <?php
-        //Seguridad acceso al sitio
-
-        session_start();
+      
 
         if(!isset($_SESSION["username"])){
             //Redirigir al login
@@ -268,7 +267,7 @@
 ?>
 
 
-<script src="../../../public_html/js/script.js"></script>
+<script src="../../../js/script.js"></script>
 
 
 
