@@ -1,13 +1,8 @@
 <?php
     require_once "../../model/login_model.php";
-
+    ini_set('display_errors', 1);
 
     $login_model = new Login_model();
-
-    if (isset($_GET["mode"])) {
-        $modo_acceso = htmlentities(addslashes($_GET["mode"]));
-
-    }
    
     $username = htmlentities(addslashes($_POST["username"]));
     
@@ -19,39 +14,25 @@
     $colonia = htmlentities(addslashes($_POST["colonia"]));
     $telefono = htmlentities(addslashes($_POST["telefono"]));
 
-    
-
-
-    if ($modo_acceso == "admin") {
-        $tipo_usuario = htmlentities(addslashes($_POST["tipo_usuario"]));
-        switch($tipo_usuario){
-            case "administrador":
-                $tipo_usuario_numero = 1;
-                break;
-
-            case "cliente":
-                $tipo_usuario_numero = 2;
-                break;
-
-            default:
-                break;
-        }
-    }else{
+    if(isset($_GET["tipo_usuario"])){
         $tipo_usuario = htmlentities(addslashes($_GET["tipo_usuario"]));
+
+    }else{
+        $tipo_usuario = htmlentities(addslashes($_POST["tipo_usuario"]));
     }
 
+    
 
-    $respuesta = $login_model->add_user($username, $password,$email, $tipo_usuario_numero, $codigo_postal,$calle,$colonia,$telefono);
+
+    $respuesta = $login_model->add_user($username, $password,$email, $tipo_usuario, $codigo_postal,$calle,$colonia,$telefono);
     
     if ($respuesta == "ok") {
-    header("location: ../../../index.php?status=ok&action=add_account");
-    die();
-     }elseif($respuesta == "error-user_created"){
+        header("location: ../../../index.php?status=ok&action=add_account");
+        die();
+     }else {
          header("location: ../../view/login/agregar_usuario_view.php?status=error&action=username_used");
          die();
-    
-    }else{
-     } 
+    }
 
 
 ?>

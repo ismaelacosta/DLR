@@ -12,15 +12,14 @@
 </head>
 <body>
     <?php
-        require_once("../../config/config.php");
-
+        ini_set('display_errors', 1);
         if(!isset($_SESSION["username"])){
             //Redirigir al login
             header("Location: ../acceso/acceso_no_autorizado.php");
             die();
         }
 
-        include_once TEMPLATES_PATH . "header_view.php";
+        include_once "../../templates/header_view.php";
         require_once "../../model/producto_model.php";
 
         //Lanza la respuesta si el inicio de sesion es incorrecto

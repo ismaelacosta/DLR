@@ -35,7 +35,7 @@
         public function es_duplicado_carrito($id_producto,$id_usuario){
             $es_duplicado = false;
             try {
-                $sql = "SELECT COUNT(id_carrito) as cantidad FROM carrito WHERE id_usuario= :usuario AND id_producto= :producto";
+                $sql = "SELECT COUNT(id_carrito) as 'cantidad' FROM carrito WHERE id_usuario= :usuario AND id_producto= :producto";
                 $resultado = $this->db->prepare($sql);
                 
                 $resultado->bindValue(":usuario",$id_usuario);
@@ -44,7 +44,7 @@
                 $resultado->execute();
     
                 foreach ($resultado as $dato) {
-                    if($dato["cantidad"] != null){
+                    if($dato["cantidad"] != 0){
                         $es_duplicado=true;
                     }
                 }
@@ -148,7 +148,6 @@
                     $sql = "INSERT INTO carrito(id_usuario,id_producto) VALUES(?,?)";
                     $preparacion = $this->db->prepare($sql);
                     $preparacion->execute([$id_usuario,$id_producto]);
-        
         
                     return "ok";
                 } catch (Exception $e) {

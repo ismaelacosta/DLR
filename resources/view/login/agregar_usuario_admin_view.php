@@ -68,8 +68,8 @@
                         </td>
                         <td>
                             <select name="tipo_usuario" id="" >
-                                <option value="administrador">Administrador</option>
-                                <option value="cliente">Cliente</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Cliente</option>
                             </select>
                         </td>
                     </tr>

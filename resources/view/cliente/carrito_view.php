@@ -112,12 +112,12 @@
            <!--  <td><?php echo $fila["existencias"];  ?></td>
  -->
             <td></td>
-            <td><button id="aumentar_<?php echo $contador ?>" onclick="aumentar(<?php echo $contador ?>,<?php echo $fila['existencias']; ?>)"><img width="40" src="../../../public_html/img/icons/add.jpg" alt=""></button></td>
-            <td><button id="disminuir_<?php echo $contador ?>" onclick="disminuir(<?php echo $contador ?>)"><img width="40" src="../../../public_html/img/icons/sub.png" alt=""></button></td>
+            <td><button id="aumentar_<?php echo $contador ?>" onclick="aumentar(<?php echo $contador ?>,<?php echo $fila['existencias']; ?>)"><img width="40" src="../../../img/icons/add.jpg" alt=""></button></td>
+            <td><button id="disminuir_<?php echo $contador ?>" onclick="disminuir(<?php echo $contador ?>)"><img width="40" src="../../..//img/icons/sub.png" alt=""></button></td>
 
             <td>
                 <a href="../../procesamiento/cliente/procesamiento_eliminar_carrito.php?id=<?php echo $fila["id_producto"];?>">
-                    <img width="40" src="../../../public_html/img/icons/delete_icon.webp" alt="">
+                    <img width="40" src="../../../img/icons/delete_icon.png" alt="">
                 </a>
             </td>
                

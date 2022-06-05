@@ -1,6 +1,6 @@
 <?php session_start();
-
     require_once "../../model/login_model.php";
+    ini_set('display_errors', 1);
 
     $username = htmlentities(addslashes($_POST["username"]));
     
@@ -10,6 +10,9 @@
 
     $acceso = $login_model->check_user($username, $password);
 
+    //echo $acceso;
+
+  
 
     if($acceso == true){
 
@@ -18,10 +21,11 @@
 
         $tipo_acceso = $login_model->type_user($username);
 
-        if($tipo_acceso == "administrador"){
+       /* if($tipo_acceso == "administrador"){
             header("location: ../../view/inicio/inicio_administrador.php");
             die();
-        }else{
+        }*/
+        if($tipo_acceso == "cliente"){
             header("location: ../../view/inicio/inicio_cliente.php");
             die();
         }
